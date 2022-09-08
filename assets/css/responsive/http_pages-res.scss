@@ -1,0 +1,38 @@
+@import '../config/variables';
+
+main.main {
+    margin-top: 117px;
+    width: 100%;
+
+    .container {
+        background-color: $light;
+        margin: 8rem auto;
+        margin-top: 10rem;
+        max-width: 600px;
+        padding: 2rem;
+        border-radius: 25px;
+
+        p {
+            text-align: center;
+        }
+        p.num {
+            font-size: 70px;
+
+            span:nth-child(1), span:nth-child(3) {
+                color: $primary;
+            }
+        }
+        p.txt {
+            color: $gray;
+        }
+        p.anc {
+            margin-top: 1rem;
+        }
+        a {
+            text-align: center;
+            color: $primary;
+            font-size: $font-large;
+            font-weight: bolder;
+        }
+    }
+}

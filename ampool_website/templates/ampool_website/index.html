@@ -1,0 +1,496 @@
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n %}
+{% block title %}{% translate 'آمپول | خانه' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/home.css' %}" media="screen and (min-width: 1701px)">
+<link rel="stylesheet" href="{% static 'css/responsive/home-res.css' %}" media="screen and (max-width: 1700px)">
+<!-- External Libraries -->
+<link rel="stylesheet" href="{% static 'verndors/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'verndors/owl.theme.default.min.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<!-- + Main -->
+<main class="main">
+    
+    <section class="main__search">
+        
+        <div class="main__search__bar">
+
+            <div class="wrapper__header">
+                <h1>{% translate 'به وبسایت' %} <a href="/">{% translate 'آمپول' %}</a> {% translate 'خوش آمدید' %}</h1>
+                <p>{% translate 'به صورت آنلاین امور پزشکی خود را با آمپول انجام دهید.' %}</p>
+            </div>
+
+            <form action="{% url 'website:blog_search' %}" method="GET" novalidate>
+                
+                <input type="text" placeholder="{% translate 'در مقالات آمپول جستجو کنید...' %}" name="query">
+                <button type="submit">
+                    <span>{% translate 'جستجو کن' %}</span> <i class="fa fa-search"></i>
+                </button>
+
+            </form>
+
+            <div class="wrapper__links">
+                <img src="{% static 'img/doctor_monitor.jpg' %}" alt="www.ampool.ir">
+            </div>
+
+        </div>
+            
+    </section>
+
+    <section class="main__options">
+
+        <div class="main__options__list">
+
+            <div class="main__options__item">
+                <img src="{% static 'img/calander.jpg' %}" alt="www.ampool.ir">
+                <h1>{% translate 'نوبت دهی آنلاین مطب' %}</h1>
+                <p>{% translate 'اخذ نوبت حضوری از پزشکان متخصص' %}</p>
+                <button>{% translate 'دریافت' %}</button>
+            </div>
+
+            <div class="main__options__item">
+                <img src="{% static 'img/meeting.jpg' %}" alt="www.ampool.ir">
+                <h1>{% translate 'مشاوره آنلاین پزشکی' %}</h1>
+                <p>{% translate 'گفتگوی متنی با پزشکان متخصص' %}</p>
+                <button>{% translate 'دریافت' %}</button>
+            </div>
+
+            <div class="main__options__item">
+                <img src="{% static 'img/online_service.jpg' %}" alt="www.ampool.ir">
+                <h1>{% translate 'خدمات پزشکی آنلاین' %}</h1>
+                <p>{% translate 'ویزیت مجازی پزشک و پرستار در منزل' %}</p>
+                <button>{% translate 'دریافت' %}</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="main__docskills">
+        
+        <div class="main__docskills__docimage">
+            <img src="{% static 'img/three_doctor.jpg' %}" alt="">
+        </div>
+
+        <div class="main__docskills__center">
+            <div class="main__docskills__header">
+                <h1>{% translate 'مشاوره و نوبت دهی آنلاین با بهترین پزشکان متخصص و فوق متخصص در آمپول' %}</h1>
+                <h1>{% translate 'مجموعه ای کامل از تمام تخصص های پزشکی' %}</h1>
+            </div>
+
+            <div class="main__docskills__items owl-carousel1 owl-carousel owl-theme owl-loaded owl-drag">
+                
+                <div class="main__docskills__wrapper">
+
+                    <div class="main__docskills__item item">
+                        <a href="">
+                            <div class="img__wrapper"><img src="{% static 'img/skill.webp' %}" alt=""></div>
+                            <h5>اعصاب</h5>
+                        </a>
+                    </div>
+
+                    <div class="main__docskills__item item">
+                        <a href="">
+                            <div class="img__wrapper"><img src="{% static 'img/skill.webp' %}" alt=""></div>
+                            <h5>اعصاب</h5>
+                        </a>
+                    </div>
+                    
+                </div>
+
+
+                <div class="main__docskills__wrapper">
+
+                    <div class="main__docskills__item item">
+                        <a href="">
+                            <div class="img__wrapper"><img src="{% static 'img/skill.webp' %}" alt=""></div>
+                            <h5>اعصاب</h5>
+                        </a>
+                    </div>
+
+                    <div class="main__docskills__item item">
+                        <a href="">
+                            <div class="img__wrapper"><img src="{% static 'img/skill.webp' %}" alt=""></div>
+                            <h5>اعصاب</h5>
+                        </a>
+                    </div>
+                    
+                </div>
+
+                <div class="main__docskills__wrapper">
+
+                    <div class="main__docskills__item item">
+                        <a href="">
+                            <div class="img__wrapper"><img src="{% static 'img/skill.webp' %}" alt=""></div>
+                            <h5>اعصاب</h5>
+                        </a>
+                    </div>
+
+                    <div class="main__docskills__item item">
+                        <a href="">
+                            <div class="img__wrapper"><img src="{% static 'img/skill.webp' %}" alt=""></div>
+                            <h5>اعصاب</h5>
+                        </a>
+                    </div>
+                    
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="main__docskills__bgred"></div>
+
+    </section>
+
+    <section class="main__blogsec">
+        
+        <div class="main__blogsec__header">
+            <h1>{% translate 'مجله اختصاصی سلامت آمپول' %}</h1>
+            <h1>{% translate 'از جدید ترین اخبار روز پزشکی دنیا مطلع باشید' %}</h1>
+        </div>
+
+        <div class="main__blogsec__content">
+
+            <div class="main__blogsec__bgred"></div>
+
+            <div class="main__blogsec__blogs owl-carousel2 owl-carousel owl-theme owl-loaded owl-drag">
+                
+                {% for blog in last_blogs %}
+                <div class="main__blogsec__blogitem item">
+                    <a href="{% url 'website:blog_details' blog.blog.slug %}">
+                        <img src="{{ blog.blog.image.url }}" alt="{{ blog.blog.title }}">
+                        <div class="caption"><h6>{{ blog.blog.short_desc|truncatewords:5 }}</h6></div>
+                        <div class="hover__caption">
+                            <img src="{% static 'img/hover-pointer.svg' %}" alt="">
+                            <h3>{{ blog.blog.short_desc|truncatewords:10 }}</h3>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="main__blogsec__img">
+                <img src="{% static 'img/blogs.png' %}" alt="www.ampool.ir">
+            </div> 
+
+        </div>
+
+    </section>
+
+    <section class="main__doctors">
+        
+        <div class="main__doctors__docimage">
+            <img src="{% static 'img/three_doctor_2.jpg' %}" alt="www.ampool.ir">
+        </div>
+
+        <div class="main__doctors__center">
+
+            <div class="main__doctors__header">
+                <h1>{% translate 'دریافت مشاوره و نوبت مجازی از پزشکان منتخب' %}</h1>
+            </div>
+
+            <div class="main__doctors__items owl-carousel3 owl-carousel owl-theme owl-loaded owl-drag">
+
+                {% for doctor in doctors %}
+                <div class="main__doctors__item item">
+                    {% if doctor.user.profile %}<img src="{{ doctor.user.profile.url }}" alt="{{ doctor.user.get_full_name }}">{% endif %}
+                    <h3>{{ doctor.user.get_full_name }}</h3>
+                    <p>{% translate 'پزشک' %}</p>
+                </div>
+                {% endfor %}
+            
+            </div>
+        </div>
+
+        <div class="main__doctors__bgred"></div>
+
+    </section>
+
+</main>
+<!-- - Main -->
+
+{% endblock %}
+
+{% block extraScript %}
+<script>
+
+    $(document).ready(function() {
+
+        var owl1 = $('.owl-carousel1');
+        owl1.owlCarousel({
+            loop: true,
+            margin: 10,
+            rtl:  true,
+            autoplay: true,
+            autoplayTimeout:  2000,
+            autoplayHoverPause: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            lazyLoad: true,
+            responsive:{
+                0: { items: 2 },
+                400: { items: 3 },
+                600: { items: 4 },
+                700: { items: 5 },
+                800: { items: 6 },
+                1000: { items: 7 },
+                1200: { items: 8 },
+                1700: { items: 6 },
+            }
+        });
+
+        var owl2 = $('.owl-carousel2');
+        owl2.owlCarousel({
+            loop: true,
+            margin: 10,
+            rtl:  true,
+            autoplay: true,
+            autoplayTimeout:  2000,
+            autoplayHoverPause: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            lazyLoad: true,
+            responsive:{    
+                0: { items: 1 },
+                400: { items: 2 },
+                700: { items: 3 },
+                800: { items: 3 },
+                1000: { items: 4 },
+                1200: { items: 5 },
+                1700: { items: 5 },
+            }
+        });
+
+        var owl3 = $('.owl-carousel3');
+        owl3.owlCarousel({
+            loop: true,
+            margin: 10,
+            rtl:  true,
+            autoplay: true,
+            autoplayTimeout:  2000,
+            autoplayHoverPause: true,
+            responsiveClass: true,
+            nav: true,
+            dots: false,
+            lazyLoad: true,
+            responsive:{
+                0: { items: 1 },
+                400: { items: 2 },
+                600: { items: 3 },
+                800: { items: 4 },
+                1100: { items: 5 },
+                1200: { items: 6 },
+                1700: { items: 4 },
+            }
+        });
+    });
+      
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n %}
+{% block title %}{% translate 'خانه' %}{% endblock %}
+
+
+{% block content %}
+<!--================Home Banner Area =================-->
+<section class="banner-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <h1>{% translate 'سلامتی را با هم بسازیم' %}</h1>
+                <p>{% translate 'ما اینجا هستیم تا شما بتوانید با صرفه جویی در زمان، امورات پزشکی خود را انجام دهید.' %}</p>
+                <a href="{% url 'website:doctors' %}" class="main_btn_light">{% translate 'دیدن پزشک ها' %}</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================ Feature section start =================-->      
+<section class="feature-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-feature text-center text-lg-left" style="width: 360px !important; height: 212px !important;">
+
+                        <h3 class="card-feature__title"><span class="card-feature__icon">
+                            <i class="ti-layers"></i>
+                        </span>{% translate 'مراقبت ویژه' %}</h3>
+                        <p class="card-feature__subtitle">{% translate 'در واقع شرایط بیماران بستری در بخش مراقبت ویژه به گونه ای است که امکان مراقبت ونگهداری از آنها در سایر بخش‌ها و در کنار دیگر بیماران وجود ندارد.' %}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-feature text-center text-lg-left" style="width: 360px !important; height: 212px !important;">
+
+                        <h3 class="card-feature__title"><span class="card-feature__icon">
+                            <i class="ti-heart-broken"></i>
+                        </span>{% translate 'موارد اظطراری' %}</h3>
+                        <p class="card-feature__subtitle">{% translate 'پیشگیری بهتر از درمان است. در حفظ سلامتی خود کوشا باشید.' %}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-feature text-center text-lg-left" style="width: 360px !important; height: 212px !important;">
+
+                        <h3 class="card-feature__title"><span class="card-feature__icon">
+                            <i class="ti-headphone-alt"></i>
+                        </span>{% translate 'قرار انلاین' %}</h3>
+                        <p class="card-feature__subtitle">{% translate 'شما میتوانید در همه‌ی اوقات شبانه روز، برای ملاقات با پزشک موردنظر خود، تایم رزرو کنید.' %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!--================ Feature section end =================-->  
+
+<!--================ Service section start =================-->  
+<div class="service-area area-padding-top">
+    <div class="container">
+        <div class="area-heading row">
+            <div    >
+                <h3>{% translate 'فوق العاده ترین مراقبت ها' %}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card-service text-center text-lg-left mb-4 mb-lg-0">
+                    <span class="card-service__icon">
+                        <i class="flaticon-brain"></i>
+                    </span>
+                    <h3 class="card-service__title">{% translate 'سرویس پزشکی' %}</h3>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-service text-center text-lg-left mb-4 mb-lg-0">
+                    <span class="card-service__icon">
+                        <i class="flaticon-tooth"></i>
+                    </span>
+                    <h3 class="card-service__title">{% translate 'دندانی کلینک' %}</h3>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card-service text-center text-lg-left mb-4 mb-lg-0">
+                    <span class="card-service__icon">
+                        <i class="flaticon-face"></i>
+                    </span>
+                    <h3 class="card-service__title">{% translate 'جراحی پلاستیک' %}</h3>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>    
+<!--================ Service section end =================-->      
+
+<!--================About  Area =================-->
+<section class="about-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-6 offset-xl-7 col-xl-5">
+                <div class="about-content">
+                    <h4>{% translate 'با ما بهترین پزشک ها را تجربه کنید' %}</h4>
+                    <h6>{% translate 'ما بهترین پزشک های متخصص را دور هم گرد آورده ایم تا با بهترین کیفیت به شما خدمت کنیم' %}</h6>
+                    <p>{% translate 'سلامتی شما آرزوی ماست' %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================About Area End =================-->
+
+<!--================ Team section start =================-->  
+{% include 'ampool_website/partials/doctor_cards.html' %}
+<!--================ Team section end =================-->  
+
+<!-- ================ testimonial section start ================= -->      
+{% include 'ampool_website/partials/doctor_notes.html' with style="margin-top: 0 !important; padding: 95px 0px !important;" %}
+<!-- ================ testimonial section end ================= -->    
+
+<!-- ================ Hotline Area Starts ================= -->  
+<section class="hotline-area text-center area-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>{% translate 'خط ویژه' %}</h2>
+                <span>06216051</span>
+                <p class="pt-3">{% translate 'ما برای سلامتی شما سرویس 24 ساعته در نظر داریم' %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ Hotline Area End ================= -->  
+
+<!--================ Start Blog Area =================-->
+<section class="blog-area area-padding">
+    <div class="container">
+        <div class="area-heading row">
+            <div class="col-md-5 col-xl-4">
+                <h3>{% translate 'آخرین بلاگ‌ها' %}</h3>
+            </div>
+            <div class="col-md-7 col-xl-8"></div>
+        </div>
+
+        <div class="row">
+            {% for blog in last_blogs %}
+            <div class="col-md-6 col-lg-4 col-md-4">
+                <div class="single-blog">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{{ blog.blog.image.url }}" alt="{{ blog.blog.title }}">
+                    </div>
+                    <div class="short_details">
+
+                        <div class="meta-top d-flex">
+                            {% for cate in blog.blog.categories.all %}
+                            <span>{{ cate.title }}{% if not forloop.last %} - {% endif %} </span>
+                            {% empty %}
+                            {% endfor %}
+                        </div>
+                        
+                        <a class="d-block" href="{% url 'website:blog_details' blog.blog.slug %}">
+                            <h4 style="text-align: justify;">{{ blog.blog.short_desc|truncatewords:20 }}</h4>
+                        </a>
+                        <div class="meta-bottom d-flex">
+                            <a><i class="ti-comments"></i>{% if blog.comments %}{{ blog.comments }}{% else %}0{% endif %} نظر</a>
+                            <a><i class="ti-heart"></i> {% if blog.likes %}{{ blog.likes }}{% else %}0{% endif %} لایک</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!--================ End Blog Area =================-->
+{% endblock %}
+
+
+{% endcomment %}

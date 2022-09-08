@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #dd0c0c;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_2094" data-name="Group 2094" transform="translate(-913 -4924)">
+    <circle id="Ellipse_734" data-name="Ellipse 734" class="cls-1" cx="60" cy="60" r="60" transform="translate(913 4924)"/>
+    <circle id="Ellipse_735" data-name="Ellipse 735" class="cls-2" cx="44.5" cy="44.5" r="44.5" transform="translate(928 4939)"/>
+    <path id="fi-rr-angle-right" class="cls-3" d="M1.434,34.427A1.434,1.434,0,0,1,.42,31.978L12.143,20.256a4.3,4.3,0,0,0,0-6.085L.42,2.449A1.434,1.434,0,1,1,2.449.42L14.171,12.143a7.179,7.179,0,0,1,0,10.142L2.449,34.007A1.434,1.434,0,0,1,1.434,34.427Z" transform="translate(955.413 4991.879) rotate(-90)"/>
+  </g>
+</svg>

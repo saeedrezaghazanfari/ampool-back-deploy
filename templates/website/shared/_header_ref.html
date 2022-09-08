@@ -1,0 +1,18 @@
+{% load static %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="description" content="{% if request.LANGUAGE_CODE == 'fa' %}وبسایت آمپول{% elif request.LANGUAGE_CODE == 'en' %}Ampool WebSite{% elif request.LANGUAGE_CODE == 'ar' %}موقع امبول{% endif %}">
+<link rel="icon" href="{% static 'img/logo-pure.png' %}">
+<meta name="theme-color" content="#dd0c0c">
+
+<!-- fontawesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- External Styles -->
+<link rel="stylesheet" href="{% static 'css/configure.css' %}">
+<link rel="stylesheet" href="{% static 'css/custom.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/custom-res.css' %}" media="screen and (max-width: 800px)">

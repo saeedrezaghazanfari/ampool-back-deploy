@@ -1,0 +1,164 @@
+
+@import './config/variables';
+
+
+main.main {
+    background-color: $light;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    .message_box_live {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    
+        p.message {
+            padding: 0.5rem 1rem;
+            border-radius: 7px;
+            font-size: $font-medium;
+            background-color: $primary;
+            color: $white;
+            min-width: 250px;
+        }
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: auto;
+        
+        .wrapper__sec {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+
+            &__item {
+                position: relative;
+                flex: 1;
+                background-color: $white;
+                height: 500px;
+                width: 100%;
+                margin: 1rem;
+                margin-top: 10rem;
+                border-radius: 15px;
+
+                video {
+                    transform: scaleX(-1);
+                    width: 100%;
+                    border-radius: 15px;
+                    height: 100%;
+                }
+                img.water__logo {
+                    height: 70px;
+                    position: absolute;
+                    z-index: 50;
+                    left: 3px;
+                    bottom: 5px;
+                }
+                h3 {
+                    position: absolute;
+                    top: -50px;
+                    right: 20px;
+                    font-size: $font-medium;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+        
+                    img {
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        border: 1px solid $light;
+                    }
+                    span {
+                        padding-right: 10px;
+                    }
+                }
+            }
+        }
+        .wrapper__controler {
+            margin-top: 10px;
+            max-width: 1200px;
+            padding: 1rem;
+            margin: auto;
+            text-align: center;
+            position: relative;
+
+            p.time__sec {
+                margin-top: 1rem;
+                letter-spacing: 2px;
+                color: #aaa;
+            }
+
+            button.report__calls {
+                position: absolute;
+                right: 10px;
+                top: 30px;
+                border-radius: 7px;
+                background-color: $primary;
+                color: white;
+                padding: 10px 1.5rem;
+                transition: all 0.3s linear;
+
+                &:hover {
+                    background-color: darken($primary, 5%);
+                }
+            }
+
+            .btn__wrapper {
+                margin-top: 20px;
+
+                button {
+                    background-color: $white;
+                    transition: all 0.3s linear;
+                    margin: 5px;
+                    box-shadow: 0 0 19px 0px #ccc;
+    
+                    &:hover {
+                        background-color: $gray;
+                        img {
+                            transform: scale(1.08);
+                        }
+                    }
+                }
+                button.button__off {
+                    background-color: $gray;
+                }
+                button {
+                    border-radius: 50%;
+                    padding: 15px;
+                    height: 80px;
+                    width: 80px;
+    
+                    img {
+                        height: 40px !important;
+                        width: 40px !important;
+                        transition: all 0.3s linear;
+                    }
+                }
+                button.button__smaller {
+                    border-radius: 50%;
+                    padding: 15px;
+                    height: 60px;
+                    width: 60px;
+    
+                    img {
+                        height: 30px !important;
+                        width: 30px !important;
+                        transition: all 0.3s linear;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        a {
+            color: $primary;
+        }
+    }
+}

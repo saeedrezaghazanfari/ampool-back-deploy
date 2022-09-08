@@ -1,0 +1,27 @@
+<svg id="Component_104_1" data-name="Component 104 – 1" xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffffff;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #ffffff;
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <path id="Union_9" data-name="Union 9" class="cls-1" d="M14373.489-604.7l-3.765,6.168-13.105-25.947,12.853,5.845,13.759,6.231-6.269,4.1,8.5,8.176-3.484,3.592Z" transform="translate(-14343.539 639.008)"/>
+  <g id="Ellipse_1309" data-name="Ellipse 1309" class="cls-2">
+    <circle class="cls-3" cx="27.5" cy="27.5" r="27.5"/>
+    <circle class="cls-4" cx="27.5" cy="27.5" r="25.5"/>
+  </g>
+</svg>

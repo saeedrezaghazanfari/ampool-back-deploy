@@ -1,0 +1,456 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 15:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: .\apps.py:8
+msgid "ماژول شغل ها"
+msgstr "وحدة الوظائف"
+
+#: .\models.py:10 .\models.py:29 .\models.py:199
+msgid "کاربر"
+msgstr "المستعمل"
+
+#: .\models.py:11
+msgid "اجازه‌ی ارسال پاسخ به کاربران"
+msgstr "إذن لإرسال ردود للمستخدمين"
+
+#: .\models.py:12
+msgid "اجازه‌ی تولید پست"
+msgstr "إذن للنشر"
+
+#: .\models.py:13 .\models.py:35 .\models.py:80
+msgid "فعال / غیرفعال"
+msgstr "نشط سلبي"
+
+#: .\models.py:17
+msgid "پشتیبان"
+msgstr "الدعم"
+
+#: .\models.py:18
+msgid "پشتیبانان"
+msgstr "أنصار"
+
+#: .\models.py:25
+msgid "نام پشتیبان"
+msgstr "اسم النسخ الاحتياطي"
+
+#: .\models.py:30
+msgid "سابقه ی پزشکی"
+msgstr "تاريخ طبى"
+
+#: .\models.py:31
+msgid "بیوگرافی"
+msgstr "سيرة شخصية"
+
+#: .\models.py:31
+msgid "این متن در زمان ارائه‌ی مقالات پزشکی شما در سایت، به کاربران نشان داده خواهد شد"
+msgstr "سيظهر هذا النص للمستخدمين عند تقديم مقالاتك الطبية على الموقع"
+
+#: .\models.py:32
+msgid "اجازه برای مشاوره دادن به بیماران"
+msgstr "إذن لتقديم المشورة للمرضى"
+
+#: .\models.py:32
+msgid "اگر این گزینه فعال این پزشک میتواند برنامه‌ی پزشکی تعیین کند و وقت مشاوره ارائه بدهد"
+msgstr "إذا كان هذا الخيار نشطًا ، فيمكن لهذا الطبيب تحديد خطة طبية وتوفير وقت الاستشارة"
+
+#: .\models.py:33
+msgid "درخواست وبلاگنویسی"
+msgstr "طلب التدوين"
+
+#: .\models.py:33
+msgid "آیا این پزشک درخواست برای بلاگنویسی داده است؟"
+msgstr "هل تقدم هذا الطبيب للتدوين؟"
+
+#: .\models.py:34
+msgid "نویسنده است؟"
+msgstr "هو المؤلف"
+
+#: .\models.py:34
+msgid "اجازه‌ی نوشتن مقالات"
+msgstr "إذن لكتابة المقالات"
+
+#: .\models.py:39 .\models.py:64 .\models.py:115 .\models.py:130
+#: .\models.py:154
+msgid "پزشک"
+msgstr "طبيب"
+
+#: .\models.py:40
+msgid "پزشک ها"
+msgstr "الأطباء"
+
+#: .\models.py:47 .\models.py:92
+msgid "نام پزشک"
+msgstr "اسم الطبيب"
+
+#: .\models.py:51 .\models.py:55
+msgid "عنوان تخصص"
+msgstr "عنوان التخصص"
+
+#: .\models.py:56
+msgid "عناوین تخصص‌ها"
+msgstr "ألقاب الاختصاصات"
+
+#: .\models.py:63
+msgid "فروردین"
+msgstr "فارفاردين"
+
+#: .\models.py:63
+msgid "اردیبهشت"
+msgstr "Ordibehesht"
+
+#: .\models.py:63
+msgid "خرداد"
+msgstr "خرداد"
+
+#: .\models.py:63
+msgid "تیر"
+msgstr "تير"
+
+#: .\models.py:63
+msgid "مرداد"
+msgstr "مورداد"
+
+#: .\models.py:63
+msgid "شهریور"
+msgstr "شهريفار"
+
+#: .\models.py:63
+msgid "مهر"
+msgstr "ختم"
+
+#: .\models.py:63
+msgid "آبان"
+msgstr "حظر"
+
+#: .\models.py:63
+msgid "آذر"
+msgstr "نار"
+
+#: .\models.py:63
+msgid "دی"
+msgstr "يناير"
+
+#: .\models.py:63
+msgid "بهمن"
+msgstr "انهيار ثلجي"
+
+#: .\models.py:63
+msgid "اسفند"
+msgstr "اسفند"
+
+#: .\models.py:65
+msgid "امتیاز"
+msgstr "نتيجة"
+
+#: .\models.py:66
+msgid "عنوان تخصص/ها"
+msgstr "عنوان التخصص / التخصصات"
+
+#: .\models.py:67
+msgid "تصویر مدرک"
+msgstr "صورة الوثيقة"
+
+#: .\models.py:69
+msgid "کد نظام پزشکی"
+msgstr "كود النظام الطبي"
+
+#: .\models.py:70
+msgid "نام"
+msgstr "اسم"
+
+#: .\models.py:71
+msgid "نام خانوادگی"
+msgstr "اللقب"
+
+#: .\models.py:72
+msgid "نام پدر"
+msgstr "اسم الاب"
+
+#: .\models.py:73
+msgid "شماره شناسنامه"
+msgstr "هوية شخصية"
+
+#: .\models.py:74
+msgid "کدملی"
+msgstr "رمز دولي"
+
+#: .\models.py:75
+msgid "صادره از"
+msgstr "صادر عن"
+
+#: .\models.py:76
+msgid "تاریخ صدور"
+msgstr "تاريخ الإصدار"
+
+#: .\models.py:77
+msgid "معدل"
+msgstr "المعدل التراكمي"
+
+#: .\models.py:78
+msgid "معدل با حروف"
+msgstr "المعدل التراكمي بالحروف"
+
+#: .\models.py:79
+msgid "نام رشته"
+msgstr "اسم الحقل"
+
+#: .\models.py:80
+msgid "آیا این مدرک تایید شده است؟"
+msgstr "هل هذه الوثيقة معتمدة؟"
+
+#: .\models.py:84 .\models.py:131 .\models.py:155
+msgid "تخصص پزشک"
+msgstr "خبرة الطبيب"
+
+#: .\models.py:85
+msgid "تخصص ‌های پزشکان"
+msgstr "تخصصات الأطباء"
+
+#: .\models.py:98
+msgid "شنبه"
+msgstr "السبت"
+
+#: .\models.py:99
+msgid "یک شنبه"
+msgstr "السبت"
+
+#: .\models.py:100
+msgid "دو شنبه"
+msgstr "الاثنين"
+
+#: .\models.py:101
+msgid "سه شنبه"
+msgstr "يوم الثلاثاء"
+
+#: .\models.py:102
+msgid "چهار شنبه"
+msgstr "الأربعاء"
+
+#: .\models.py:103
+msgid "پنج شنبه"
+msgstr "يوم الخميس"
+
+#: .\models.py:104
+msgid "جمعه"
+msgstr "جمعة"
+
+#: .\models.py:116
+msgid "تخصص‌ها"
+msgstr "التخصصات"
+
+#: .\models.py:117
+msgid "روز"
+msgstr "يوم"
+
+#: .\models.py:118
+msgid "زمان"
+msgstr "زمن"
+
+#: .\models.py:122
+msgid "زمان مشاوره‌ی پزشک"
+msgstr "وقت استشارة الطبيب"
+
+#: .\models.py:123
+msgid "زمان‌های مشاوره‌ی پزشک"
+msgstr "أوقات استشارة الطبيب"
+
+#: .\models.py:132 .\models.py:153
+msgid "بیمار"
+msgstr "صبور"
+
+#: .\models.py:133
+msgid "روز درخواستی از سمت بیمار"
+msgstr "اليوم الذي يطلبه المريض"
+
+#: .\models.py:134
+msgid "ساعت درخواستی از سمت بیمار"
+msgstr "الوقت الذي يطلبه المريض"
+
+#: .\models.py:135
+msgid "آیا پزشک این درخواست را مشاهده کرده است؟"
+msgstr "هل رأى الطبيب هذا الطلب؟"
+
+#: .\models.py:136
+msgid "تاریخ ملاقات با دکتر"
+msgstr "تاريخ التعيين مع الطبيب"
+
+#: .\models.py:137
+msgid "زمان ملاقات با دکتر از"
+msgstr "حان الوقت للقاء الطبيب"
+
+#: .\models.py:138
+msgid "زمان ملاقات با دکتر تا"
+msgstr "حان الوقت للقاء د"
+
+#: .\models.py:139
+msgid "آیا این زمان رزرو شده است؟"
+msgstr "هل هذا الوقت محجوز؟"
+
+#: .\models.py:140
+msgid "آیا این ملاقات به اتمام رسیده است؟"
+msgstr "هل انتهى هذا الاجتماع؟"
+
+#: .\models.py:145
+msgid "زمان ملاقات پزشک"
+msgstr "وقت موعد الطبيب"
+
+#: .\models.py:146
+msgid "زمان‌های ملاقات پزشک"
+msgstr "مواعيد مواعيد الطبيب"
+
+#: .\models.py:156
+msgid "فعال بودن چت"
+msgstr "الدردشة نشطة"
+
+#: .\models.py:161 .\models.py:169
+msgid "اجازه‌ی چت"
+msgstr "السماح بالمحادثة"
+
+#: .\models.py:162
+msgid "اجازه‌ی چت‌ها"
+msgstr "السماح بالمحادثات"
+
+#: .\models.py:170 .\models.py:198
+msgid "پاسخ"
+msgstr "إجابة"
+
+#: .\models.py:171
+msgid "فرستنده"
+msgstr "مرسل"
+
+#: .\models.py:172
+msgid "گیرنده"
+msgstr "المتلقي"
+
+#: .\models.py:173
+msgid "متن پیام"
+msgstr "رسالة نصية"
+
+#: .\models.py:174
+msgid "فایل"
+msgstr "ملف"
+
+#: .\models.py:175
+msgid "فرستاده شد؟"
+msgstr "أرسلت؟"
+
+#: .\models.py:176
+msgid "دیده شد؟"
+msgstr "شوهد. تمت رؤيته؟"
+
+#: .\models.py:177
+msgid "آیا این پیام پاسخ میباشد؟"
+msgstr "هل هذه الرسالة رد؟"
+
+#: .\models.py:178
+msgid "آیا این پیام شامل فایل میباشد؟"
+msgstr "هل تحتوي هذه الرسالة على ملف؟"
+
+#: .\models.py:183
+msgid "چت"
+msgstr "دردشة"
+
+#: .\models.py:184
+msgid "چت ها"
+msgstr "الدردشات"
+
+#: .\models.py:192
+msgid "Finance and Administration"
+msgstr "والتمويل والإدارة"
+
+#: .\models.py:193
+msgid "Account Activation"
+msgstr "تفعيل الحساب"
+
+#: .\models.py:194
+msgid "Upgrade Account"
+msgstr "حدث الحساب"
+
+#: .\models.py:195
+msgid "WebSite Performance"
+msgstr "أداء الموقع"
+
+#: .\models.py:196
+msgid "Other"
+msgstr "آخر"
+
+#: .\models.py:200
+msgid "دپارتمان"
+msgstr "قسم"
+
+#: .\models.py:201
+msgid "عنوان"
+msgstr "عنوان"
+
+#: .\models.py:202
+msgid "محتوا"
+msgstr "المحتوى"
+
+#: .\models.py:203
+msgid "تصویر"
+msgstr "صورة"
+
+#: .\models.py:204
+msgid "خوانده شده توسط کاربر؟"
+msgstr "قراءة من قبل المستخدم؟"
+
+#: .\models.py:205
+msgid "خوانده شده توسط پشتیبان؟"
+msgstr "قراءة عن طريق النسخ الاحتياطي؟"
+
+#: .\models.py:206
+msgid "آیا این تیکت پاسخ است؟"
+msgstr "هل هذه التذكرة هي الجواب؟"
+
+#: .\models.py:211
+msgid "تیکت"
+msgstr "تذكرة"
+
+#: .\models.py:212
+msgid "تیکت ها"
+msgstr "تذاكر"
+
+#: .\models.py:219 .\models.py:238
+msgid "تاریخ گزارش"
+msgstr "تاريخ التقرير"
+
+#: .\models.py:222
+msgid "گزارش کننده"
+msgstr "مراسل"
+
+#: .\models.py:223
+msgid "گزارش شده"
+msgstr "ذكرت"
+
+#: .\models.py:224
+msgid "نوع گزارش"
+msgstr "نوع التقرير"
+
+#: .\models.py:226
+msgid "رسیدگی شده است؟"
+msgstr "هل تم التعامل معها؟"
+
+#: .\models.py:230
+msgid "گزارش"
+msgstr "تقرير"
+
+#: .\models.py:231
+msgid "گزارش ها"
+msgstr "التقارير"

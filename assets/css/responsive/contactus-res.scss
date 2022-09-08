@@ -1,0 +1,120 @@
+@import '../config/variables';
+@import '../config/layouts';
+
+
+main.main {
+
+    .main__header {
+        background-color: $white;
+        margin-top: 117px;
+        padding: 2rem;
+
+        .header__wrapper {
+            max-width: 1300px;
+            margin: auto;
+            padding: 50px 0;
+
+            p {
+                margin-bottom: 20px;
+    
+                a, i {
+                    color: $primary !important;
+                }
+                i { padding: 0 5px; }
+            }
+        }
+
+        .detail__wrapper {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 0;
+            display: flex;
+            flex-wrap: wrap;
+    
+            &__map {
+                flex: 1;
+                height: 200px;
+                min-width: 230px;
+                width: 100% !important;
+                margin-bottom: 2rem;
+
+                div#map {
+                    height: 400px !important;
+                    border-radius: 25px;
+                    min-width: 230px;
+                    width: 100% !important;
+                }
+            }
+
+            &__info {
+                flex: 1;
+                margin-top: 3rem;
+                min-width: 230px;
+                margin-bottom: 1rem;
+
+                h1 { color: $primary; }
+                p { color: $secondry; }
+                div { line-height: 25pt; }
+                div:nth-child(1) { margin-bottom: 2rem; }
+            }
+        }
+    }
+
+    .main__body {
+        background-color: $light;
+        border-radius: 50px 0 0 50px;
+        border: 1px solid $light;
+        margin-top: 100px;
+        padding: 2rem;
+
+        form {
+            max-width: 1100px;
+            margin: 2rem auto;
+            margin-bottom: rem;
+
+            h1 {
+                margin-bottom: 2rem;
+            }
+            div.wrapper__threefield {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            input, textarea {
+                flex: 1;
+                min-width: 220px;
+                margin-bottom: 1rem;
+                background-color: $white;
+                padding: 15px 18px;
+                border-radius: 8px;
+                color: $secondry;
+                outline: none;
+                border: none;
+                margin-left: 20px;
+                width: 100%;
+                color: $font-large;
+            } 
+            textarea {
+                margin-top: 30px;
+            }
+            .wrapper__btn {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                button {
+                    background-color: $primary;
+                    padding: 12px;
+                    border-radius: 8px;
+                    color: $white;
+                    outline: none;
+                    border: none;
+                    margin-left: 20px;
+                    min-width: 200px;
+                    margin-top: 25px;
+                    margin-bottom: 2rem;
+                    color: $font-large;
+                }
+            }
+        }
+    }
+}

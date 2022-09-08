@@ -1,0 +1,290 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 15:30+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\apps.py:8
+msgid "احراز هویت"
+msgstr "المصادقة"
+
+#: .\forms.py:10 .\models.py:12
+msgid "مرد"
+msgstr "رجل"
+
+#: .\forms.py:10 .\models.py:12
+msgid "زن"
+msgstr "أنثى"
+
+#: .\forms.py:21 .\forms.py:29
+msgid "نام خود را وارد کنید"
+msgstr "أدخل أسمك"
+
+#: .\forms.py:22
+msgid "نام خانوادگی خود را وارد کنید"
+msgstr "أدخل اسمك الأخير"
+
+#: .\forms.py:23 .\forms.py:47 .\forms.py:59
+msgid "شماره تلفن خود را وارد کنید"
+msgstr "أدخل رقم هاتفك"
+
+#: .\forms.py:32
+msgid "نام باید شامل کاراکترهای فارسی باشد"
+msgstr "يجب أن يحتوي الاسم على أحرف فارسية"
+
+#: .\forms.py:38
+msgid "نام‌خانوادگی خود را وارد کنید"
+msgstr "أدخل اسمك الأخير"
+
+#: .\forms.py:41
+msgid " نام‌خانوادگی باید شامل کاراکترهای فارسی باشد"
+msgstr " يجب أن يحتوي اللقب على أحرف فارسية"
+
+#: .\forms.py:50
+msgid "این شماره تلفن در سیستم ثبت شده است"
+msgstr "رقم الهاتف هذا مسجل في النظام"
+
+#: .\forms.py:52 .\forms.py:72
+msgid "الگوی شماره تلفن شما صحیح نیست"
+msgstr "نمط رقم هاتفك غير صحيح"
+
+#: .\forms.py:55 .\forms.py:75
+msgid "شماره تلفن باید شامل اعداد انگلیسی باشد"
+msgstr "يجب أن يحتوي رقم الهاتف على أرقام باللغة الإنجليزية"
+
+#: .\forms.py:65
+msgid "شماره تلفن همراه خود را وارد کنید"
+msgstr "أدخل رقم الهاتف المحمول الخاص بك"
+
+#: .\forms.py:70
+msgid "این شماره تلفن در سیستم موجود نیست"
+msgstr "رقم الهاتف هذا غير متوفر في النظام"
+
+#: .\forms.py:80
+msgid "مانند: 12345"
+msgstr "مثل: 12345"
+
+#: .\forms.py:87
+msgid "فرمت کد قابل قبول نیست"
+msgstr "تنسيق الكود غير مقبول"
+
+#: .\forms.py:90
+msgid "کد باید شامل اعداد انگلیسی باشد"
+msgstr "يجب أن يحتوي الرمز على أرقام باللغة الإنجليزية"
+
+#: .\models.py:13
+msgid "کد کاربری"
+msgstr "الرقم السري للمستخدم"
+
+#: .\models.py:14
+msgid "شماره تلفن"
+msgstr "رقم الهاتف"
+
+#: .\models.py:15
+msgid "پروفایل"
+msgstr "الملف الشخصي"
+
+#: .\models.py:16
+msgid "موجودی کیف پول"
+msgstr "رصيد المحفظة"
+
+#: .\models.py:17
+msgid "تعداد دفعات رایگان"
+msgstr "عدد المرات المجاني"
+
+#: .\models.py:18
+msgid "جنسیت"
+msgstr "جنس"
+
+#: .\models.py:19
+msgid "سن"
+msgstr "سن"
+
+#: .\models.py:20
+msgid "وزن"
+msgstr "وزن"
+
+#: .\models.py:21
+msgid "قد"
+msgstr "ارتفاع"
+
+#: .\models.py:22
+msgid "آدرس محل زندگی شما"
+msgstr "عنوان إقامتك"
+
+#: .\models.py:23
+msgid "مقیاس ایکس محل زندگی شما"
+msgstr "مقياس X حيث تعيش"
+
+#: .\models.py:24
+msgid "مقیاس ایگرگ محل زندگی شما"
+msgstr "حجم مكان إقامتك"
+
+#: .\models.py:25
+msgid "آیا پیامک های پزشکی ارسال شود؟"
+msgstr "هل يمكن إرسال الرسائل القصيرة الطبية؟"
+
+#: .\models.py:26
+msgid "فعال بودن حساب جهت استفاده از اپلیکیشن"
+msgstr "تفعيل الحساب لاستخدام التطبيق"
+
+#: .\models.py:26
+msgid "اگر اطلاعات حساب کاربر کامل بود آنگاه این گزینه فعال میشود."
+msgstr "إذا كانت معلومات حساب المستخدم كاملة ، فسيتم تفعيل هذا الخيار."
+
+#: .\models.py:27
+msgid "آیا این این کاربر مقام پزشک دارد؟"
+msgstr "هل هذا المستخدم طبيب؟"
+
+#: .\models.py:28
+msgid "آیا این این کاربر مقام پشتیبان دارد؟"
+msgstr "هل هذا المستخدم لديه موقف دعم؟"
+
+#: .\models.py:32
+msgid "نام و نام خانوادگی"
+msgstr "الاسم الأول واسم العائلة"
+
+#: .\models.py:36 .\models.py:41
+msgid "کاربر"
+msgstr "المستعمل"
+
+#: .\models.py:37
+msgid "کاربران"
+msgstr "المستخدمين"
+
+#: .\models.py:42
+msgid "کد"
+msgstr "الشفرة"
+
+#: .\models.py:43 .\models.py:52
+msgid "تاریخ تولید کد"
+msgstr "تاريخ إنشاء الكود"
+
+#: .\models.py:44 .\models.py:56
+msgid "تاریخ انقضای کد"
+msgstr "تاريخ انتهاء الكود"
+
+#: .\models.py:44
+msgid "این فیلد لازم نیست پر شود. بعد از ثبت رکورد بصورت اتوماتیک ثبت میشود."
+msgstr "هذا الحقل لا يحتاج لملء. بعد التسجيل ، سيتم تسجيل السجل تلقائيًا."
+
+#: .\models.py:45
+msgid "استفاده شده؟"
+msgstr "تستخدم؟"
+
+#: .\models.py:60
+msgid "کد ورود به حساب کاربری"
+msgstr "رمز تسجيل الدخول للحساب"
+
+#: .\models.py:61
+msgid "کدهای ورود به حساب های کاربری"
+msgstr "رموز الدخول إلى حسابات المستخدمين"
+
+#: .\templates\ampool_auth\enter_code.html:3
+msgid "آمپول | وارد کردن کد پیامکی"
+msgstr "أمبولة | أدخل رمز SMS"
+
+#: .\templates\ampool_auth\enter_code.html:19
+#: .\templates\ampool_auth\enter_code.html:34
+msgid "ورود به آمپول"
+msgstr "أدخل الأمبولة"
+
+#: .\templates\ampool_auth\enter_code.html:26
+msgid "کد ارسال شده را وارد کنید:"
+msgstr "أدخل الرمز المرسل:"
+
+#: .\templates\ampool_auth\enter_code.html:31
+msgid "برگشت به صفحه ی ورود"
+msgstr "العودة إلى صفحة تسجيل الدخول"
+
+#: .\templates\ampool_auth\signin.html:3
+msgid "آمپول | ورود"
+msgstr "أمبولة | تسجيل الدخول"
+
+#: .\templates\ampool_auth\signin.html:19
+msgid "فرم ورود به آمپول"
+msgstr "استمارة إدخال أمبولة"
+
+#: .\templates\ampool_auth\signin.html:26
+#: .\templates\ampool_auth\signup.html:38
+msgid "شماره تلفن همراه"
+msgstr "رقم الهاتف الجوال"
+
+#: .\templates\ampool_auth\signin.html:31
+msgid "ثبت نام در آمپول"
+msgstr "التسجيل في أمبولة"
+
+#: .\templates\ampool_auth\signin.html:34
+msgid "ارسال کد"
+msgstr "أرسل الرمز"
+
+#: .\templates\ampool_auth\signup.html:3
+msgid "آمپول | ثبت نام"
+msgstr "أمبولة | يسجل"
+
+#: .\templates\ampool_auth\signup.html:19
+msgid "فرم ثبت نام به آمپول"
+msgstr "استمارة التسجيل للأمبولة"
+
+#: .\templates\ampool_auth\signup.html:26
+msgid "نام"
+msgstr "اسم"
+
+#: .\templates\ampool_auth\signup.html:32
+msgid "نام خانوادگی"
+msgstr "اللقب"
+
+#: .\templates\ampool_auth\signup.html:59
+msgid "ورود به حساب کاربری"
+msgstr "تسجيل الدخول إلى الحساب"
+
+#: .\templates\ampool_auth\signup.html:62
+msgid "ثبت نام"
+msgstr "يسجل"
+
+#: .\views.py:44
+msgid "حساب کاربری شما با موفقیت ایجاد شد. برای ورود کد پیامک شده را وارد کنید"
+msgstr "تم إنشاء حسابك بنجاح. أدخل رمز SMS للدخول"
+
+#: .\views.py:47
+msgid "مشکلی بوجود آمده است"
+msgstr "نشأت مشكلة"
+
+#: .\views.py:77
+msgid "پیامک حاوی کد برای شما ارسال شد. بعد از دریافت کد، آن را وارد کنید"
+msgstr "تم إرسال رسالة نصية قصيرة تحتوي على الرمز إليك. بعد استلام الرمز ، أدخله"
+
+#: .\views.py:80
+msgid "شماره تلفن شما اشتباه است و یا در سیستم موجود نیست"
+msgstr "رقم هاتفك خاطئ أو غير متوفر في النظام"
+
+#: .\views.py:124
+msgid "به آمپول خوش آمدید"
+msgstr "مرحبا بكم في أمبول"
+
+#: .\views.py:127
+msgid "مشکلی در ورود شما بوجود آمد"
+msgstr "كانت هناك مشكلة في تسجيل الدخول"
+
+#: .\views.py:130
+msgid "کد شما نامعتبر و یا منقضی شده است"
+msgstr "رمزك غير صالح أو منتهي الصلاحية"
+
+#: .\views.py:140
+msgid "شما با موفقیت خارج شدید"
+msgstr "لقد قمت بتسجيل الخروج بنجاح"

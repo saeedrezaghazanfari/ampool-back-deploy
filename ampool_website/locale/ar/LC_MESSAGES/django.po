@@ -1,0 +1,425 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 15:50+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\apps.py:8
+msgid "ماژول های وبسایت"
+msgstr "وحدات الموقع"
+
+#: .\models.py:10 .\templates\ampool_website\index.html:203
+msgid "پزشک"
+msgstr "طبيب"
+
+#: .\models.py:11
+msgid "عنوان کوتاه"
+msgstr "عنوان قصير"
+
+#: .\models.py:12
+msgid "متن"
+msgstr "نص"
+
+#: .\models.py:17
+msgid "نوت پزشک"
+msgstr "ملاحظة الطبيب"
+
+#: .\models.py:18
+msgid "نوت های پرشکان"
+msgstr "ملاحظات Pershakan"
+
+#: .\models.py:25 .\templates\ampool_website\doctors_page.html:41
+msgid "نام پزشک"
+msgstr "اسم الطبيب"
+
+#: .\models.py:29
+msgid "مقدار در url"
+msgstr "القيمة في url"
+
+#: .\models.py:30
+msgid "تصویر"
+msgstr "صورة"
+
+#: .\models.py:31
+msgid "نویسنده"
+msgstr "الكاتب"
+
+#: .\models.py:31
+msgid "آگر نویسنده ای انتخاب نشود، این پست توسط پشتیبان نوشته شده است"
+msgstr "إذا لم يتم اختيار مؤلف ، فهذا المنشور كتبه أحد الرعاة"
+
+#: .\models.py:32 .\models.py:105
+#: .\templates\ampool_website\partials\blog_sidebar.html:21
+msgid "دسته بندی ها"
+msgstr "التصنيفات"
+
+#: .\models.py:33 .\models.py:117
+msgid "تگ ها"
+msgstr "العلامات"
+
+#: .\models.py:34 .\models.py:100 .\models.py:112
+msgid "عنوان"
+msgstr "عنوان"
+
+#: .\models.py:35
+msgid "متن مقاله"
+msgstr "نص المقال"
+
+#: .\models.py:36
+msgid "متن کوتاه"
+msgstr "نص قصير"
+
+#: .\models.py:37
+msgid "منتشر شود؟"
+msgstr "لتنشر؟"
+
+#: .\models.py:42 .\models.py:81 .\models.py:125
+msgid "بلاگ"
+msgstr "مقالات"
+
+#: .\models.py:43
+msgid "بلاگ‌ها"
+msgstr "المدونات"
+
+#: .\models.py:50
+msgid "تاریخ انتشار"
+msgstr "يوم الاصدار"
+
+#: .\models.py:73 .\templates\ampool_website\blog_detail.html:157
+#: .\templates\ampool_website\blog_detail.html:189
+msgid "پشتیبان"
+msgstr "الدعم"
+
+#: .\models.py:74
+msgid "نام نویسنده"
+msgstr "اسم المؤلف"
+
+#: .\models.py:78
+msgid "پاسخ"
+msgstr "إجابة"
+
+#: .\models.py:79 .\templates\ampool_website\blog_detail.html:57
+#: .\templates\ampool_website\blogs_page.html:52
+msgid "نظر"
+msgstr "رأي"
+
+#: .\models.py:80 .\models.py:124
+msgid "کاربر"
+msgstr "المستعمل"
+
+#: .\models.py:83
+msgid "پاسخ؟"
+msgstr "إجابة؟"
+
+#: .\models.py:84
+msgid "نمایش؟"
+msgstr "العرض؟"
+
+#: .\models.py:85
+msgid "توسط نویسنده خوانده شده؟"
+msgstr "قرأه المؤلف؟"
+
+#: .\models.py:89
+msgid "نظر کاربر"
+msgstr "تعليقات المستخدم"
+
+#: .\models.py:90
+msgid "نظرات کاربران"
+msgstr "تعليقات المستخدم"
+
+#: .\models.py:94
+msgid "تاریخ نظر"
+msgstr "تاريخ التعليق"
+
+#: .\models.py:104
+msgid "دسته بندی"
+msgstr "التجمع"
+
+#: .\models.py:116
+msgid "تگ"
+msgstr "بطاقة شعار"
+
+#: .\models.py:129
+msgid "پست و لایک"
+msgstr "مشاركة وما شابه"
+
+#: .\models.py:130
+msgid "پست ها و لایک ها"
+msgstr "المشاركات والاعجابات"
+
+#: .\models.py:137
+msgid "متن ارتباط"
+msgstr "نص التواصل"
+
+#: .\models.py:138
+msgid "نام کاربر"
+msgstr "اسم االمستخدم"
+
+#: .\models.py:139
+msgid "ایمیل کاربر"
+msgstr "البريد الالكتروني للمستخدم"
+
+#: .\models.py:140
+msgid "عنوان ارتباط"
+msgstr "عنوان الاتصال"
+
+#: .\models.py:145
+msgid "پیام مخاطب"
+msgstr "رسالة الجمهور"
+
+#: .\models.py:146
+msgid "پیام های مخاطبان"
+msgstr "رسائل الجمهور"
+
+#: .\templates\ampool_website\blog_detail.html:3
+msgid "آمپول | جزئیات مجله"
+msgstr "أمبولة | تفاصيل المجلة"
+
+#: .\templates\ampool_website\blog_detail.html:21
+#: .\templates\ampool_website\blogs_page.html:20
+#: .\templates\ampool_website\contactus.html:25
+#: .\templates\ampool_website\doctors_page.html:21
+msgid "صفحه نخست"
+msgstr "الصفحة الرئيسية"
+
+#: .\templates\ampool_website\blog_detail.html:22
+msgid "مجله پزشکی"
+msgstr "مجلة الطب"
+
+#: .\templates\ampool_website\blog_detail.html:89
+#: .\templates\ampool_website\blogs_page.html:51
+msgid "وبسایت آمپول"
+msgstr "موقع أمبول"
+
+#: .\templates\ampool_website\blog_detail.html:90
+msgid "وبسایت آمپول، بروزترین و جدیدترین پلتفرم پزشکی ایران"
+msgstr "موقع أمبول ، أحدث وأحدث منصة طبية إيرانية"
+
+#: .\templates\ampool_website\blog_detail.html:102
+msgid "پست قبلی"
+msgstr "المنشور السابق"
+
+#: .\templates\ampool_website\blog_detail.html:117
+msgid "پست بعدی"
+msgstr "بعد القادم"
+
+#: .\templates\ampool_website\blog_detail.html:139
+msgid "خوشحال میشویم نظر خود را با ما به اشتراک بگذارید:"
+msgstr "يسعدنا مشاركة رأيك معنا:"
+
+#: .\templates\ampool_website\blog_detail.html:147
+msgid "ارسال نظر"
+msgstr "انشر تعليق"
+
+#: .\templates\ampool_website\blog_detail.html:161
+msgid "جواب دادن"
+msgstr "إجابه"
+
+#: .\templates\ampool_website\blog_detail.html:169
+msgid "پاسخ خود را وارد کنید:"
+msgstr "أدخل إجابتك:"
+
+#: .\templates\ampool_website\blog_detail.html:177
+msgid "بستن"
+msgstr "لإغلاق"
+
+#: .\templates\ampool_website\blog_detail.html:178
+msgid "ارسال پاسخ"
+msgstr "الرد آخر"
+
+#: .\templates\ampool_website\blogs_page.html:3
+msgid "آمپول | لیست مجلات"
+msgstr "أمبولة | قائمة المجلات"
+
+#: .\templates\ampool_website\blogs_page.html:21
+#: .\templates\ampool_website\blogs_page.html:23
+msgid "مجله سلامت آمپول"
+msgstr "مجلة الصحة امبول"
+
+#: .\templates\ampool_website\blogs_page.html:58
+msgid "مجله ای متناسب با عبارت مورد نظر شما پیدا نشد!"
+msgstr "لم يتم العثور على مجلة تطابق مصطلح البحث الخاص بك!"
+
+#: .\templates\ampool_website\contactus.html:4
+msgid "آمپول | ارتباط باما"
+msgstr "أمبولة | اتصل بنا"
+
+#: .\templates\ampool_website\contactus.html:26
+#: .\templates\ampool_website\contactus.html:28
+msgid "ارتباط باما"
+msgstr "اتصل بنا"
+
+#: .\templates\ampool_website\contactus.html:37
+msgid "شماره تماس و پشتیبانی"
+msgstr "رقم الاتصال والدعم"
+
+#: .\templates\ampool_website\contactus.html:39
+msgid "شماره تماس پشتیبانی:"
+msgstr "رقم الاتصال بالدعم:"
+
+#: .\templates\ampool_website\contactus.html:43
+msgid "آدرس"
+msgstr "تبوك"
+
+#: .\templates\ampool_website\contactus.html:76
+msgid "با ما در تماس باشید"
+msgstr "ابق على تواصل معنا"
+
+#: .\templates\ampool_website\contactus.html:95
+msgid "ارسال پیام"
+msgstr "إرسال رسالة"
+
+#: .\templates\ampool_website\doctors_page.html:3
+msgid "آمپول | پزشکان"
+msgstr "أمبولة | الأطباء"
+
+#: .\templates\ampool_website\doctors_page.html:22
+msgid "پزشکان"
+msgstr "الأطباء"
+
+#: .\templates\ampool_website\doctors_page.html:24
+msgid "لیست بهترین متخصصان و پزشکان و مراکز درمانی برتر"
+msgstr "قائمة بأفضل الأخصائيين والأطباء وأرقى المراكز الطبية"
+
+#: .\templates\ampool_website\doctors_page.html:36
+msgid "فیلتر اطلاعات پزشکان"
+msgstr "مرشح معلومات الأطباء"
+
+#: .\templates\ampool_website\doctors_page.html:42
+msgid "نام پزشک را وارد کنید"
+msgstr "أدخل اسم الطبيب"
+
+#: .\templates\ampool_website\doctors_page.html:46
+msgid "دسته بندی تخصص"
+msgstr "فئة الخبرة"
+
+#: .\templates\ampool_website\doctors_page.html:55
+msgid "اعمال فیلتر"
+msgstr "تطبيق مرشح"
+
+#: .\templates\ampool_website\doctors_page.html:96
+msgid "پزشـک"
+msgstr "طبيب"
+
+#: .\templates\ampool_website\doctors_page.html:102
+msgid "پزشکی با اطلاعات مورد نظر شما پیدا نشد!"
+msgstr "لم يتم العثور على الطبيب بالمعلومات التي تبحث عنها!"
+
+#: .\templates\ampool_website\index.html:3
+msgid "آمپول | خانه"
+msgstr "أمبولة | مسكن"
+
+#: .\templates\ampool_website\index.html:23
+msgid "به وبسایت"
+msgstr "إلى الموقع"
+
+#: .\templates\ampool_website\index.html:23
+msgid "آمپول"
+msgstr "أمبولة"
+
+#: .\templates\ampool_website\index.html:23
+msgid "خوش آمدید"
+msgstr "أهلا بك"
+
+#: .\templates\ampool_website\index.html:24
+msgid "به صورت آنلاین امور پزشکی خود را با آمپول انجام دهید."
+msgstr "قم بشؤونك الطبية عبر الإنترنت مع أمبول."
+
+#: .\templates\ampool_website\index.html:29
+msgid "در مقالات آمپول جستجو کنید..."
+msgstr "البحث عن مقالات أمبولة ..."
+
+#: .\templates\ampool_website\index.html:31
+msgid "جستجو کن"
+msgstr "بحث"
+
+#: .\templates\ampool_website\index.html:50
+msgid "نوبت دهی آنلاین مطب"
+msgstr "التعيين عبر الإنترنت للمكتب"
+
+#: .\templates\ampool_website\index.html:51
+msgid "اخذ نوبت حضوری از پزشکان متخصص"
+msgstr "الحصول على موعد من الأطباء المختصين"
+
+#: .\templates\ampool_website\index.html:52
+#: .\templates\ampool_website\index.html:59
+#: .\templates\ampool_website\index.html:66
+msgid "دریافت"
+msgstr "تلقى"
+
+#: .\templates\ampool_website\index.html:57
+msgid "مشاوره آنلاین پزشکی"
+msgstr "استشارة طبية عبر الإنترنت"
+
+#: .\templates\ampool_website\index.html:58
+msgid "گفتگوی متنی با پزشکان متخصص"
+msgstr "الدردشة النصية مع الأطباء المتخصصين"
+
+#: .\templates\ampool_website\index.html:64
+msgid "خدمات پزشکی آنلاین"
+msgstr "الخدمات الطبية عبر الإنترنت"
+
+#: .\templates\ampool_website\index.html:65
+msgid "ویزیت مجازی پزشک و پرستار در منزل"
+msgstr "زيارة افتراضية للطبيب والممرضة في المنزل"
+
+#: .\templates\ampool_website\index.html:81
+msgid "مشاوره و نوبت دهی آنلاین با بهترین پزشکان متخصص و فوق متخصص در آمپول"
+msgstr ""
+"الاستشارة والمواعيد عبر الإنترنت مع أفضل الأطباء المتخصصين والمتخصصين في "
+"أمبولة"
+
+#: .\templates\ampool_website\index.html:82
+msgid "مجموعه ای کامل از تمام تخصص های پزشکی"
+msgstr "مجموعة كاملة من جميع التخصصات الطبية"
+
+#: .\templates\ampool_website\index.html:152
+msgid "مجله اختصاصی سلامت آمپول"
+msgstr "مجلة امبول الصحية الحصرية"
+
+#: .\templates\ampool_website\index.html:153
+msgid "از جدید ترین اخبار روز پزشکی دنیا مطلع باشید"
+msgstr "كن على علم بآخر أخبار اليوم الطبي في العالم"
+
+#: .\templates\ampool_website\index.html:194
+msgid "دریافت مشاوره و نوبت مجازی از پزشکان منتخب"
+msgstr "تلقي الاستشارات والمواعيد الافتراضية من الأطباء المختارين"
+
+#: .\templates\ampool_website\partials\blog_sidebar.html:13
+msgid "در مقالات آمپول بگرد"
+msgstr "ابحث في مقالات أمبولة"
+
+#: .\templates\ampool_website\partials\blog_sidebar.html:35
+msgid "آخرین مقالات"
+msgstr "أحدث المقالات"
+
+#: .\views.py:135
+msgid "نظر شما ثبت شد. بعد از تایید در سایت نمایش خواهد شد"
+msgstr "تم تسجيل تعليقك. سيتم عرضها على الموقع بعد الموافقة"
+
+#: .\views.py:138 .\views.py:149
+msgid "مشکلی به وجود آمده است"
+msgstr "نشأت مشكلة"
+
+#: .\views.py:146
+msgid "پاسخ شما ثبت شد. بعد از تایید در سایت نمایش خواهد شد"
+msgstr "تم تسجيل إجابتك. سيتم عرضها على الموقع بعد الموافقة"
+
+#: .\views.py:209
+msgid "با موفقیت پیام شما ارسال شد. سپاس از همراهی شما"
+msgstr "تم إرسال رسالتك بنجاح. شكرا لدعمكم"

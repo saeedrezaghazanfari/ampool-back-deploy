@@ -1,0 +1,44 @@
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{% translate 'آمپول | وارد کردن کد پیامکی' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/auth.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/auth-res.css' %}" media="screen and (max-width: 800px)">
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- + Main -->
+    <main class="main">
+        
+        <div class="wrapper__card">
+            
+            <div class="wrapper__card__header">
+                <p>{% translate 'ورود به آمپول' %}</p>
+            </div>
+
+            <form class="wrapper__card__body" method="POST" novalidate>
+                {% csrf_token %}
+
+                <div class="wrapper__field mt-3">
+                    <label for="phone_input_id">{% translate 'کد ارسال شده را وارد کنید:' %}</label>
+                    {% render_field form.code id="phone_input_id" autofocus="autofocus" class="text-center" %}
+                    {% for msg in form.code.errors %}<p class="text-primary">{{ msg }}</p>{% endfor %}
+                </div>
+
+                <p><a href="{% url 'auth:signin' %}">{% translate 'برگشت به صفحه ی ورود' %}</a></p>
+
+                <div class="wrapper__btn">
+                    <button type="submit">{% translate 'ورود به آمپول' %}</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+    <!-- - Main -->
+
+{% endblock %}

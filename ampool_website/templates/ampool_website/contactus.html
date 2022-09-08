@@ -1,0 +1,239 @@
+
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{% translate 'آمپول | ارتباط باما' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/contactus-res.css' %}" media="screen and (max-width: 800px)">
+<!-- Leaflet API -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- + Main -->
+<main class="main">
+    
+    <section class="main__header">
+
+        <div class="header__wrapper">
+
+            <p>
+                <i class="fa fa-home"></i><a href="/">{% translate 'صفحه نخست' %}</a> / 
+                <a href="/contact-us">{% translate 'ارتباط باما' %}</a>
+            </p>
+            <h1>{% translate 'ارتباط باما' %}</h1>
+
+        </div>
+
+        <div class="detail__wrapper">
+
+            <div class="detail__wrapper__info">   
+                
+                <div>                        
+                    <h1>{% translate 'شماره تماس و پشتیبانی' %}</h1>
+                    <p class="mt-1-2">{{ sets.from_to }}</p>
+                    <p>{% translate 'شماره تماس پشتیبانی:' %} <a itemprop="telephone" href="tel:{{sets.phone}}">{{sets.phone}}</a></p>
+                </div>
+
+                <div>
+                    <h1>{% translate 'آدرس' %}</h1>
+                    <p class="mt-1-2">
+                        {{sets.country}}، 
+                        {{sets.state}}، 
+                        {{sets.city}}
+                    </p>
+                    <p>{{sets.your_text}}</p>
+                </div>
+                
+            </div>    
+
+            <div class="detail__wrapper__map">
+                
+                {% if sets %}<div id="map"></div>{% endif %}
+
+                <script>
+                    var map = L.map('map').setView([{{ sets.x_scale }}, {{ sets.y_scale }}], 13);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+                    L.marker([{{ sets.x_scale }}, {{ sets.y_scale }}]).addTo(map).bindPopup("{{ sets.marker_text }}").openPopup();
+                </script>
+                
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="main__body">
+
+        
+        <form method="POST" novalidate>
+            {% csrf_token %}
+
+            <h1>{% translate 'با ما در تماس باشید' %}</h1>
+
+            <div class="wrapper__threefield">
+                {% render_field form.name placeholder="نام و نام خانوادگی" %}
+                {% render_field form.email placeholder="ایمیل" %}
+                {% render_field form.title placeholder="عنوان" %}
+            </div>
+
+            <p class="text-primary">{% for err in form.name.errors %}{{ err }}{% endfor %}</p>
+            <p class="text-primary">{% for err in form.email.errors %}{{ err }}{% endfor %}</p>
+            <p class="text-primary">{% for err in form.title.errors %}{{ err }}{% endfor %}</p>
+
+            <div class="wrapper__threefield">
+                {% render_field form.message placeholder="متن پیام" rows="5" %}
+            </div>
+
+            <p class="text-primary">{% for err in form.message.errors %}{{ err }}{% endfor %}</p>
+
+            <div class="wrapper__btn">
+                <button type="submit">{% translate 'ارسال پیام' %}</button>
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+<!-- - Main -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{% translate 'ارتباط با ما' %}{% endblock %}
+{% block extraScriptCss %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+{% endblock %}
+
+{% block content %}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area" style="z-index: 12 !important;">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>{% translate 'ارتباط با ما' %}</h2>
+                    <p>{% translate 'زمین سبز پشت هوای الوده است' %}</p>
+                </div>
+                <div class="page_link">
+                    <a href="{% url 'website:contactus' %}">{% translate 'خانه / ارتباط با ما' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!-- ================ contact section start ================= -->
+<section class="contact-section area-padding">
+    <div class="container">
+        <div class="d-none d-sm-block mb-5 pb-4">
+            {% if sets %}<div id="map" style="height: 480px;"></div>{% endif %}
+            <script>
+                var map = L.map('map').setView([{{ sets.x_scale }}, {{ sets.y_scale }}], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+                L.marker([{{ sets.x_scale }}, {{ sets.y_scale }}]).addTo(map).bindPopup("{{ sets.marker_text }}").openPopup();
+            </script>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+            <h2 class="contact-title">{% translate 'در ارتباط بمانید' %}</h2>
+            </div>
+            <div class="col-lg-8">
+            <form class="form-contact contact_form" method="POST" id="contactForm" novalidate="novalidate">
+                {% csrf_token %}
+                <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="messagee">{% translate 'پیام' %}</label>
+                        {% render_field form.message class="form-control w-100" id="messagee" cols="30" rows="9" %}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="nameform">{% translate 'نام' %}</label>
+                        {% render_field form.name class="form-control" id="nameform" %}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="emailform">{% translate 'ایمیل' %}</label>
+                        {% render_field form.email class="form-control" id="emailform" %}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="titleform">{% translate 'عنوان' %}</label>
+                        {% render_field form.title class="form-control" id="titleform" %}
+                    </div>
+                </div>
+                </div>
+                <div class="form-group mt-3">
+                <button type="submit" class="button button-contactForm">{% translate 'ارسال پیام' %}</button>
+                </div>
+            </form>
+
+            </div>
+
+            <div class="col-lg-4">
+            <div class="media contact-info">
+                <span class="contact-info__icon"><i class="ti-home"></i></span>
+                <div class="media-body">
+                <h3>{{ sets.country }}, {{ sets.state }}</h3>
+                <p>{{ sets.city }}</p>
+                </div>
+            </div>
+            <div class="media contact-info">
+                <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                <div class="media-body">
+                <h3><a href="tel:09037279147">{{ sets.phone }}</a></h3>
+                <p>{{ sets.from_to }}</p>
+                </div>
+            </div>
+            <div class="media contact-info">
+                <span class="contact-info__icon"><i class="ti-email"></i></span>
+                <div class="media-body">
+                <h3><a href="mailto:{{ sets.email }}">{{ sets.email }}</a></h3>
+                <p>{{ sets.your_text }}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ contact section end ================= -->
+
+{% endblock %}
+
+{% endcomment %}

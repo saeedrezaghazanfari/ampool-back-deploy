@@ -1,0 +1,213 @@
+{% load i18n static %}
+
+<div class="bg__loader" id="bg__loader">
+    <div class="wrapper__loaging">
+        <div class="loading__item"></div>
+        <p>
+            {% if request.LANGUAGE_CODE == 'fa' %}در حال بارگزاری آمپول...{% elif request.LANGUAGE_CODE == 'en' %}Ampool is Loading...{% elif request.LANGUAGE_CODE == 'ar' %}يتم تحميل امبول ...{% endif %}
+        </p>
+    </div>
+</div>
+
+<div class="bg__darkglass"></div>
+<div id="ampool_ir"></div>
+
+{% if messages %}
+<div class="messages_box" id="messages_box">
+    {% for msg in messages %}
+    <div class="message_item msg__{% if msg.tags == 'error' %}error{% elif msg.tags == 'info' %}info{% elif msg.tags == 'success' %}success{% endif %}">
+        {{ msg }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<!-- + Header -->
+<header class="header">
+
+    <div class="header__account">
+        <a href="http://127.0.0.1:3000/">
+            <div>{% if request.LANGUAGE_CODE == 'fa' %}به آمپول خوش آمدید{% elif request.LANGUAGE_CODE == 'en' %}Click for Advice{% elif request.LANGUAGE_CODE == 'ar' %}انقر للحصول على المشورة{% endif %}</div>
+        </a>
+    </div>
+
+    <section class="header__navbar">
+
+        <div class="header__navbar__logo">
+            <a href="{% url 'website:index' %}">
+                <img src="{% static 'img/logo-pure.png' %}" title="www.ampool.ir" alt="www.ampool.ir">
+                <div>
+                    <span>{% if request.LANGUAGE_CODE == 'fa' %}وبسایت آمپول{% elif request.LANGUAGE_CODE == 'en' %}Welcome to Ampool{% elif request.LANGUAGE_CODE == 'ar' %}مرحبا بكم في أمبول{% endif %}</span>
+                    <span>{{ request.user.get_full_name }}</span>
+                </div>
+            </a>
+        </div>
+
+        <nav class="header__navbar__navitems">
+
+            <div class="toggle__nav">
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            
+            <div class="section__header">
+                {% if request.user.is_authenticated %}
+                {% if request.user.profile %}<img src="{{ request.user.profile.url }}" alt="{{ request.user.username }}" /> {% endif %}
+
+                <div>
+                    <p>{{ request.user.get_full_name }}</p>
+                    <p><span>{% if request.LANGUAGE_CODE == 'fa' %}کدکاربری:{% elif request.LANGUAGE_CODE == 'en' %}UserName:{% elif request.LANGUAGE_CODE == 'ar' %}الرقم السري للمستخدم:{% endif %}</span> {{ request.user.username }}</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="among__gap"></div>
+            
+            <ul>
+                <li><a href="{% url 'website:index' %}" {% if request.path == '/fa/' or request.path == '/en/' or request.path == '/ar/' %}class="active"{% endif %}><i class="fa fa-home"></i> {% if request.LANGUAGE_CODE == 'fa' %} خانه {% elif request.LANGUAGE_CODE == 'en' %} Home {% elif request.LANGUAGE_CODE == 'ar' %} فهرس {% endif %}</a></li>
+                <li><a href="{% url 'website:doctors' %}" {% if request.path == '/fa/doctors' or request.path == '/en/doctors' or request.path == '/ar/doctors' %}class="active"{% endif %}><i class="fa fa-user"></i> {% if request.LANGUAGE_CODE == 'fa' %} پزشکان {% elif request.LANGUAGE_CODE == 'en' %} Doctors {% elif request.LANGUAGE_CODE == 'ar' %} الأطباء {% endif %}</a></li>
+                <li><a href="{% url 'website:blogs' %}" {% if '/blogs' in request.path %}class="active"{% endif %}><i class="fa fa-newspaper-o"></i> {% if request.LANGUAGE_CODE == 'fa' %} مجله سلامت {% elif request.LANGUAGE_CODE == 'en' %} Journal of Health {% elif request.LANGUAGE_CODE == 'ar' %} مجلة الصحة {% endif %}</a></li>
+                <li><a href="{% url 'website:contactus' %}" {% if request.path == '/fa/contact-us' or request.path == '/en/contact-us' or request.path == '/ar/contact-us' %}class="active"{% endif %}><i class="fa fa-phone"></i> {% if request.LANGUAGE_CODE == 'fa' %} ارتباط باما {% elif request.LANGUAGE_CODE == 'en' %} ContactUs {% elif request.LANGUAGE_CODE == 'ar' %} اتصل بنا {% endif %}</a></li>
+            </ul>
+        </nav>
+
+        <div class="header__navbar__controls">
+            <nav>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'auth:signout' %}">{% if request.LANGUAGE_CODE == 'fa' %}خروج{% elif request.LANGUAGE_CODE == 'en' %}Logout{% elif request.LANGUAGE_CODE == 'ar' %}مخرج{% endif %}</a> | 
+                <a href="http://127.0.0.1:3000/">{% if request.LANGUAGE_CODE == 'fa' %}حساب کاربری{% elif request.LANGUAGE_CODE == 'en' %}Panel{% elif request.LANGUAGE_CODE == 'ar' %}لوجة{% endif %}</a> | 
+                {% else %}
+                <a href="{% url 'auth:signin' %}">{% if request.LANGUAGE_CODE == 'fa' %}ورود{% elif request.LANGUAGE_CODE == 'en' %}Login{% elif request.LANGUAGE_CODE == 'ar' %}تسجيل الدخول{% endif %}</a> | 
+                <a href="{% url 'auth:signup' %}">{% if request.LANGUAGE_CODE == 'fa' %}ثبت نام{% elif request.LANGUAGE_CODE == 'en' %}Register{% elif request.LANGUAGE_CODE == 'ar' %}يسجل{% endif %}</a> | 
+                {% endif %}
+                <a id="click_lang_open_id">{{ request.LANGUAGE_CODE|upper }}</a>
+
+                <ul id="lang_wrapper" class="d-none">
+                    {% if request.LANGUAGE_CODE == 'en' %}
+                    <li><a href="{% url 'activate_lang' %}?lang=fa&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Fa</a></li>
+                    <li><a href="{% url 'activate_lang' %}?lang=ar&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Ar</a></li>
+                    {% elif request.LANGUAGE_CODE == 'fa' %}
+                    <li><a href="{% url 'activate_lang' %}?lang=en&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">En</a></li>
+                    <li><a href="{% url 'activate_lang' %}?lang=ar&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Ar</a></li>
+                    {% elif request.LANGUAGE_CODE == 'ar' %}
+                    <li><a href="{% url 'activate_lang' %}?lang=fa&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Fa</a></li>
+                    <li><a href="{% url 'activate_lang' %}?lang=en&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">En</a></li>
+                    {% endif %}
+                </ul>
+
+            </nav>
+            <nav>
+                <img src="{% static 'img/multi.png' %}" alt="">
+            </nav>
+            <nav id="menubar__handler">
+                <i class="fa fa-bars"></i>
+            </nav>
+        </div>
+
+    </section>
+        
+</header>
+<!-- - Header -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+{% load i18n static %}
+
+
+<!--================ messages box =================-->
+{% for msg in messages %}
+
+<div class="alert alert-{% if msg.tags == 'error' %}danger{% elif msg.tags == 'info' %}info{% elif msg.tags == 'success' %}success{% elif msg.tags == 'warning' %}warning{% endif %} alert-dismissible alertme" id="alertme">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ msg }}
+</div>
+{% empty %}
+{% endfor %}
+<!--================ messages box =================-->
+
+<!--================Header Menu Area =================-->
+<header class="header_area">
+    <div class="top_menu row m0">
+        <div class="container">
+            <div class="float-left">
+                {% if request.LANGUAGE_CODE == 'en' %}
+                    <a href="{% url 'activate_lang' %}?lang=fa&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Fa</a>
+                    <a href="{% url 'activate_lang' %}?lang=ar&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Ar</a>
+                {% elif request.LANGUAGE_CODE == 'fa' %}
+                    <a href="{% url 'activate_lang' %}?lang=en&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">En</a>
+                    <a href="{% url 'activate_lang' %}?lang=ar&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Ar</a>
+                {% elif request.LANGUAGE_CODE == 'ar' %}
+                    <a href="{% url 'activate_lang' %}?lang=fa&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">Fa</a>
+                    <a href="{% url 'activate_lang' %}?lang=en&url={{ request.path|slice:'4:' }}" class="dn_btn mr-3">En</a>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'auth:signout' %}" class="dn_btn mr-3">{% if request.LANGUAGE_CODE == 'fa' %}خروج{% elif request.LANGUAGE_CODE == 'en' %}Logout{% elif request.LANGUAGE_CODE == 'ar' %}مخرج{% endif %}</a>
+                <a href="http://127.0.0.1:3000/" class="dn_btn mr-3">{% if request.LANGUAGE_CODE == 'fa' %}حساب کاربری{% elif request.LANGUAGE_CODE == 'en' %}Panel{% elif request.LANGUAGE_CODE == 'ar' %}لوجة{% endif %}</a>
+                {% else %}
+                <a href="{% url 'auth:signin' %}" class="dn_btn mr-3">{% if request.LANGUAGE_CODE == 'fa' %}ورود{% elif request.LANGUAGE_CODE == 'en' %}Login{% elif request.LANGUAGE_CODE == 'ar' %}تسجيل الدخول{% endif %}</a>
+                <a href="{% url 'auth:signup' %}" class="dn_btn mr-3">{% if request.LANGUAGE_CODE == 'fa' %}ثبت نام{% elif request.LANGUAGE_CODE == 'en' %}Register{% elif request.LANGUAGE_CODE == 'ar' %}يسجل{% endif %}</a>
+                {% endif %}
+
+            </div>
+            <div class="float-right">
+                {% if request.user.is_authenticated %}
+                    <p class="pt-2">{{ request.user.get_full_name }} ({{ request.user.username }}){% if request.user.profile %}<img src="{{ request.user.profile.url }}" class="mx-2" style="height: 20px; border-radius: 50%; width: 20px;" /> {% endif %}</p>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>	
+    </div>	
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="{% url 'website:index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item mx-4"><a class="nav-link {% if request.path == '/fa/' or request.path == '/en/' or request.path == '/ar/' %}text-primary{% endif %}" href="{% url 'website:index' %}">{% if request.LANGUAGE_CODE == 'fa' %} خانه {% elif request.LANGUAGE_CODE == 'en' %} Home {% elif request.LANGUAGE_CODE == 'ar' %} فهرس {% endif %}</a></li> 
+                        <li class="nav-item mx-4"><a class="nav-link {% if request.path == '/fa/doctors' or request.path == '/en/doctors' or request.path == '/ar/doctors' %}text-primary{% endif %}" href="{% url 'website:doctors' %}">{% if request.LANGUAGE_CODE == 'fa' %} پزشک ها {% elif request.LANGUAGE_CODE == 'en' %} Doctors {% elif request.LANGUAGE_CODE == 'ar' %} الأطباء {% endif %}</a></li>    
+                        <li class="nav-item mx-4"><a class="nav-link {% if '/blogs' in request.path %}text-primary{% endif %}" href="{% url 'website:blogs' %}">{% if request.LANGUAGE_CODE == 'fa' %} پست ها {% elif request.LANGUAGE_CODE == 'en' %} Blogs {% elif request.LANGUAGE_CODE == 'ar' %} المدونات {% endif %}</a></li>
+                        <li class="nav-item mx-4"><a class="nav-link {% if request.path == '/fa/contact-us' or request.path == '/en/contact-us' or request.path == '/ar/contact-us' %}text-primary{% endif %}" href="{% url 'website:contactus' %}">{% if request.LANGUAGE_CODE == 'fa' %} ارتباط باما {% elif request.LANGUAGE_CODE == 'en' %} ContactUs {% elif request.LANGUAGE_CODE == 'ar' %} اتصل بنا {% endif %}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<!--================Header Menu Area =================-->
+
+{% endcomment %}

@@ -1,0 +1,197 @@
+
+@import '../config/variables';
+@import '../config/layouts';
+
+body {
+    background-color: $light;
+}
+main.main {
+    background-color: $light;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+
+    .message_box_live {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 5000;
+    
+        p.message {
+            padding: 0.5rem 1rem;
+            border-radius: 7px;
+            font-size: $font-medium;
+            background-color: $primary;
+            color: $white;
+            min-width: 250px;
+        }
+    }
+
+    .container {
+        max-width: 1300px;
+        margin: auto;
+        
+        .wrapper__sec {
+            width: 100%;
+            position: relative;
+
+            &__item {
+                position: relative;
+                flex: 1;
+                background-color: $white;
+                height: 400px;
+                width: 92%;
+                margin: 1rem;
+                margin-top: 5rem;
+                border-radius: 15px;
+
+                video {
+                    transform: scaleX(-1);
+                    width: 100%;
+                    border-radius: 15px;
+                    height: 100%;
+                }
+                img.water__logo {
+                    height: 50px;
+                    position: absolute;
+                    z-index: 50;
+                    right: 3px;
+                    bottom: 5px;
+                }
+                h3 {
+                    position: absolute;
+                    top: -50px;
+                    right: 20px;
+                    display: flex;
+                    font-size: $font-small;
+                    align-items: center;
+        
+                    img {
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        border: 1px solid $light;
+                    }
+                    span {
+                        padding-right: 10px;
+                    }
+                }
+            }
+            &__item--small {
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+                flex: 1;
+                background-color: $white;
+                height: 150px;
+                width: 180px;
+                border-radius: 15px;
+
+                video {
+                    transform: scaleX(-1);
+                    width: 100%;
+                    border-radius: 15px;
+                    border: 1px solid $light;
+                    height: 100%;
+                }
+                img.water__logo {
+                    display: none;
+                }
+                h3 {
+                    display: none;
+                }
+            }
+        }
+        .wrapper__controler {
+            margin-top: 10px;
+            max-width: 1200px;
+            padding: 1rem;
+            margin: auto;
+            text-align: center;
+            position: relative;
+
+            p.time__sec {
+                margin-top: 3rem;
+                letter-spacing: 2px;
+                color: #aaa;
+            }
+
+            button.report__calls {
+                position: absolute;
+                right: 10px;
+                top: 0px;
+                font-size: $font-small;
+                border-radius: 7px;
+                background-color: $primary;
+                color: white;
+                padding: 10px 1.5rem;
+                transition: all 0.3s linear;
+
+                &:hover {
+                    background-color: darken($primary, 5%);
+                }
+            }
+
+            .btn__wrapper {
+                margin-top: 20px;
+
+                button {
+                    background-color: $white;
+                    transition: all 0.3s linear;
+                    margin: 5px;
+                    box-shadow: 0 0 19px 0px #ccc;
+    
+                    &:hover {
+                        background-color: $gray;
+                        img {
+                            transform: scale(1.08);
+                        }
+                    }
+                }
+                button.button__off {
+                    background-color: $gray;
+                }
+                button {
+                    border-radius: 50%;
+                    padding: 15px;
+                    height: 70px;
+                    width: 70px;
+    
+                    img {
+                        height: 30px !important;
+                        width: 30px !important;
+                        transition: all 0.3s linear;
+                    }
+                }
+                button.button__smaller {
+                    border-radius: 50%;
+                    padding: 15px;
+                    height: 50px;
+                    width: 50px;
+    
+                    img {
+                        height: 20px !important;
+                        width: 20px !important;
+                        transition: all 0.3s linear;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        position: absolute;
+        bottom: -20px;
+        left: 30px;
+        a {
+            color: $primary;
+        }
+    }
+}
+
+.modal__body .element__report {
+    background-color: $light !important;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 1rem;
+}

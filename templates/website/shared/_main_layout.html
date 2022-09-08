@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% include 'website/shared/_header_ref.html' %}
+    
+    {% block extraCss %}{% endblock %}
+
+</head>
+<body>
+
+    {% include 'website/shared/_header.html' %}
+
+    {% block content %}{% endblock %}
+
+    {% include 'website/shared/_footer.html' %} 
+
+    {% include 'website/shared/_footer_ref.html' %}
+
+    {% block extraScript %}{% endblock %}
+
+</body>
+</html>

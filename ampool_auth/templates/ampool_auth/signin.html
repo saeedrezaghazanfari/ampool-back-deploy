@@ -1,0 +1,92 @@
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{% translate 'آمپول | ورود' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/auth.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/auth-res.css' %}" media="screen and (max-width: 800px)">
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- + Main -->
+    <main class="main">
+        
+        <div class="wrapper__card">
+            
+            <div class="wrapper__card__header">
+                <p>{% translate 'فرم ورود به آمپول' %}</p>
+            </div>
+
+            <form class="wrapper__card__body" method="POST" novalidate>
+                {% csrf_token %}
+
+                <div class="wrapper__field mt-3">
+                    <label for="phone_input_id">{% translate 'شماره تلفن همراه' %}</label>
+                    {% render_field form.phone id="phone_input_id" autofocus="autofocus" %}
+                    {% for msg in form.phone.errors %}<p class="text-primary">{{ msg }}</p>{% endfor %}
+                </div>
+
+                <p><a href="{% url 'auth:signup' %}"><i class="fa fa-edit"></i> {% translate 'ثبت نام در آمپول' %}</a></p>
+
+                <div class="wrapper__btn">
+                    <button type="submit">{% translate 'ارسال کد' %}</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+    <!-- - Main -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+
+
+    <div class="wrapper">
+        <div class="logo"> <img src="{% static 'auth/img/ampool-logo.png' %}" alt=""> </div>
+        <div class="text-center mt-4 name"> {% translate 'ورود' %}  </div>
+        <br>
+        <form class="p-3 mt-3" method="POST">
+            {% csrf_token %}
+
+            <div class="form-field d-flex align-items-center"> 
+                {% render_field form.phone %}
+            </div>
+            {% for msg in form.phone.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+            <div class="form-field d-flex align-items-center"> 
+                {% render_field form.passcode %}
+            </div>
+            {% for msg in form.passcode.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+            
+            {% render_field form.captcha %}
+            {% for msg in form.captcha.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+            <button class="btn mt-3" type="submit">{% translate 'ورود' %}</button>
+        </form>
+        <br>
+        <div class="text-center fs-6">
+            <a href="{% url 'auth:forget-pw-phone' %}">{% translate 'آیا رمزعبور خود را فراموش کرده اید؟' %}</a> 
+            <br>
+            <a href="{% url 'auth:signup' %}">{% translate 'ثبت نام در سایت' %}</a> 
+        </div>
+    </div>
+{% endblock %}
+
+{% endcomment %}

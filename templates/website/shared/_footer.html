@@ -1,0 +1,190 @@
+{% load static i18n website_tags%}
+
+<!-- + Footer -->
+<footer class="footer">
+    
+    <div class="img__wrapper">
+        <a href="#ampool_ir">
+            <img src="{% static 'img/arrow-up-circle.svg' %}" alt="www.ampool.ir">
+        </a>
+    </div>
+
+    <div class="logo__wrapper">
+        <img src="{% static 'img/logo.png' %}" alt="www.ampool.ir">
+    </div>
+
+    <section class="footer__wrapper">
+
+        <div class="footer__right">
+            <p>
+                {% if request.LANGUAGE_CODE == 'fa' %}
+                آمپول سامانه جامع سلامت و درمان کشور است. در این سامانه میتوانید از بین پزشکان عضو آمپول نوبت آنلاین بگیــرید ، پرونده الکتــرونیک و ســابقه درمانی خود را همیشه در گوشـی همــراه خود بهمـراه داشتـه باشید، مشـاوره بگیرید، اطلاعات بیمارستان ها و داروخانه ها و مراکز تصـویر برداری نزدیک خود را مشاهده کنید. این ســامانه هوشمند پس از ویزیت پزشـک نیز همراه شما بوده و با توجه به تجویز پزشک ، شما را تا اتمام پروسـه درمان شما همـــراهی می کند
+                {% elif request.LANGUAGE_CODE == 'en' %}
+                Ampoule is the comprehensive health and treatment system of the country. In this system, you can make appointments online among the doctors who are injections, always have your electronic file and medical history with you in your mobile phone, get advice, see the information of hospitals, pharmacies and imaging centers near you. This smart system will be with you after the doctor's visit and will accompany you until the end of your treatment process, according to the doctor's prescription.
+                {% elif request.LANGUAGE_CODE == 'ar' %}
+                أمبولة هو نظام شامل للصحة والعلاج في البلاد. في هذا النظام ، يمكنك تحديد مواعيد عبر الإنترنت بين الأطباء الذين يقومون بالحقن ، مع الاحتفاظ دائمًا بملفك الإلكتروني وتاريخك الطبي معك في هاتفك المحمول ، والحصول على المشورة ، والاطلاع على معلومات المستشفيات والصيدليات ومراكز التصوير القريبة منك. سيكون هذا النظام الذكي معك بعد زيارة الطبيب وسيرافقك حتى نهاية عملية العلاج ، حسب وصفة الطبيب.
+                {% endif %}
+            </p>
+            <br>
+            <ul>
+                <li><a href="{% url 'website:index' %}">{% if request.LANGUAGE_CODE == 'fa' %} خانه {% elif request.LANGUAGE_CODE == 'en' %} Home {% elif request.LANGUAGE_CODE == 'ar' %} فهرس {% endif %}</a></li>
+                <li><a href="{% url 'website:doctors' %}">{% if request.LANGUAGE_CODE == 'fa' %} پزشکان {% elif request.LANGUAGE_CODE == 'en' %} Doctors {% elif request.LANGUAGE_CODE == 'ar' %} الأطباء {% endif %}</a></li>
+                <li><a href="{% url 'website:blogs' %}">{% if request.LANGUAGE_CODE == 'fa' %} مجله سلامت {% elif request.LANGUAGE_CODE == 'en' %} Journal of Health {% elif request.LANGUAGE_CODE == 'ar' %} مجلة الصحة {% endif %}</a></li>
+                <li><a href="{% url 'website:contactus' %}">{% if request.LANGUAGE_CODE == 'fa' %} ارتباط باما {% elif request.LANGUAGE_CODE == 'en' %} ContactUs {% elif request.LANGUAGE_CODE == 'ar' %} اتصل بنا {% endif %}</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__left">
+            
+            <div class="img__wrapper">
+                <a href=""><img src="{% static 'img/multi.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'img/multi.png' %}" alt=""></a>
+                <a href=""><img src="{% static 'img/multi.png' %}" alt=""></a>
+            </div>
+
+            <div class="link__wrapper">
+                <h3>{% if request.LANGUAGE_CODE == 'fa' %}شبکه های اجتماعی ما:{% elif request.LANGUAGE_CODE == 'en' %}Our social networks:{% elif request.LANGUAGE_CODE == 'ar' %}شبكاتنا الاجتماعية:{% endif %}</h3>
+                <div>
+                    <a href=""><img src="{% static 'img/aparat.svg' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/telegram.svg' %}" alt=""></a>
+                    <a href=""><img src="{% static 'img/instagram.svg' %}" alt=""></a>
+                </div>
+            </div>
+
+            <div class="btns__wrapper mt-2">
+                {% if request.user.is_authenticated %}
+                <a href="">{% if request.LANGUAGE_CODE == 'fa' %}ورود به پنل کاربری{% elif request.LANGUAGE_CODE == 'en' %}Login to the user panel{% elif request.LANGUAGE_CODE == 'ar' %}تسجيل الدخول إلى لوحة المستخدم{% endif %}</a>
+                <a href="{% url 'auth:signout' %}">{% if request.LANGUAGE_CODE == 'fa' %}خروج{% elif request.LANGUAGE_CODE == 'en' %}Exit{% elif request.LANGUAGE_CODE == 'ar' %}مخرج{% endif %}</a>
+                {% else %}
+                <a href="{% url 'auth:signin' %}">{% if request.LANGUAGE_CODE == 'fa' %}ورود به آمپول{% elif request.LANGUAGE_CODE == 'en' %}Enter the ampoule{% elif request.LANGUAGE_CODE == 'ar' %}أدخل الأمبولة{% endif %}</a>
+                <a href="{% url 'auth:signup' %}">{% if request.LANGUAGE_CODE == 'fa' %}ثبت نام در آمپول{% elif request.LANGUAGE_CODE == 'en' %}Enrollment in ampoules{% elif request.LANGUAGE_CODE == 'ar' %}التسجيل في أمبولات{% endif %}</a>
+                {% endif %}
+            </div>
+
+        </div>
+        
+    </section>
+    <p class="whereis_it">دفتر مرکزی: تهران - خیابان ولیعصر - خیابان ناهید غربی - پلاک 48 - طبقه سوم   - واحد 304</p>
+
+    <section class="footer__last__item">
+        <p>{% if request.LANGUAGE_CODE == 'fa' %}کلیه حقوق مادی و معنوی متعلق به ampool.ir است{% elif request.LANGUAGE_CODE == 'en' %}All Material and Intellectual Rights belong to Ampool.ir{% elif request.LANGUAGE_CODE == 'ar' %}جميع الحقوق المادية والفكرية تنتمي إلى ampool.ir{% endif %}</p>
+    </section>
+
+</footer>
+<!-- - Footer -->
+
+<script>
+    likeblog = (slug) => {
+        $.ajax ({
+            url: `/blogs/like/${slug}`,
+            type: 'GET',
+            enctype: 'multipart/form-data',
+            success: (res) => {
+                if(res.status == '200'){
+                    document.getElementById('heart__icon').style.color = "#f00";
+                    document.querySelector('.fa-iconheart').classList.remove('fa-heart-o');
+                    document.querySelector('.fa-iconheart').classList.add('fa-heart');
+                    document.getElementById('counter__likes').innerHTML = res.counter;
+                }
+                else if(res.status == '203'){
+                    document.getElementById('heart__icon').style.color = "black";
+                    document.querySelector('.fa-iconheart').classList.remove('fa-heart');
+                    document.querySelector('.fa-iconheart').classList.add('fa-heart-o');
+                    document.getElementById('counter__likes').innerHTML = res.counter;
+                }
+            },
+            error: (err)=> {
+                console.log(err.status);
+            },
+            contentType: false,
+            processData: false,
+        });
+
+    }
+
+    // for alert box
+    const alert = document.getElementById('messages_box');
+    setTimeout(() => {
+        alert.style.display = 'none'
+    }, 5000);
+
+</script>
+
+
+
+
+{% comment %}
+
+
+<!--================ End Brands Area =================-->
+
+<!-- start footer Area -->
+<footer class="footer-area area-padding-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 single-footer-widget">
+                <h4>{% translate 'لینک های سریع' %}</h4>
+                <ul>
+                    <li><a target="_blank" href="http://127.0.0.1:3000/account/dashboard/">{% if request.LANGUAGE_CODE == 'fa' %}حساب کاربری{% else %}Account{% endif %}</a></li>
+                    <li><a href="{% url 'website:doctors' %}">{% if request.LANGUAGE_CODE == 'fa' %}دکتر‌ها{% else %}Doctors{% endif %}</a></li>
+                    <li><a href="{% url 'website:blogs' %}">{% if request.LANGUAGE_CODE == 'fa' %}بلاگ ها{% else %}Blogs{% endif %}</a></li>
+                    <li><a href="{% url 'website:contactus' %}">{% if request.LANGUAGE_CODE == 'fa' %}تماس باما{% else %}contact us{% endif %}</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 single-footer-widget">
+                <h4>امکانات</h4>
+                <ul>
+                    <li>{% if request.LANGUAGE_CODE == 'fa' %}رزور کردن وقت{% else %}Book time{% endif %}</li>
+                    <li>{% if request.LANGUAGE_CODE == 'fa' %}مشاوره گرفتن از پزشک{% else %}Get medical advice{% endif %}</li>
+                    <li>{% if request.LANGUAGE_CODE == 'fa' %}مشاهده ی مدارک پزشک‌ها{% else %}View doctors' records{% endif %}</li>
+                    <li>{% if request.LANGUAGE_CODE == 'fa' %}مطالعه کردن بلاگ‌ها{% else %}Reading blogs{% endif %}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row footer-bottom d-flex justify-content-between">
+        <p class="col-lg-8 col-sm-12 footer-text m-0">
+            {% if request.LANGUAGE_CODE == 'fa' %}این وبسایت توسط{% else %}This website has been designed by {% endif %} <a class="text-dark font-weight-bold" href="https://www.instagram.com/saeedreza_wu/" target="_blank">{% if request.LANGUAGE_CODE == 'fa' %}سعیدرضا غضنفری{% else %}SaeedReza Ghazanfari{% endif %}</a> {% if request.LANGUAGE_CODE == 'fa' %}طراحی شده است {% else %}{% endif %} 
+        </p>
+    </div>
+    </div>
+</footer>
+<!-- End footer Area -->
+
+<script>
+    likeblog = (slug) => {
+        $.ajax ({
+            url: `/blogs/like/${slug}`,
+            type: 'GET',
+            enctype: 'multipart/form-data',
+            success: (res) => {
+                if(res.status == '200'){
+                    document.getElementById('hearticon').classList.add('text-danger');
+                    document.getElementById('heartcolor').classList.add('text-danger');
+                    document.getElementById('youareliked').style.display = 'inline';
+                    document.getElementById('counterlikes').innerHTML = res.counter;
+                }
+                else if(res.status == '203'){
+                    document.getElementById('hearticon').classList.remove('text-danger');
+                    document.getElementById('heartcolor').classList.remove('text-danger');
+                    document.getElementById('youareliked').style.display = 'none';
+                    document.getElementById('counterlikes').innerHTML = res.counter;
+                }
+            },
+            error: (err)=> {
+                console.log(err.status);
+            },
+            contentType: false,
+            processData: false,
+        });
+
+    }
+
+    // for alert box
+    const alert = document.getElementById('alertme');
+    setTimeout(() => {
+        alert.style.display = 'none'
+    }, 5000)
+</script>
+
+{% endcomment %}

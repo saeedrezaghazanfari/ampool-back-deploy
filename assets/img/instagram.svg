@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47">
+  <defs>
+    <style>
+      .cls-1, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #d1d1d1;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #d1d1d1;
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Group_2131" data-name="Group 2131" transform="translate(-873 -5772)">
+    <g id="Rectangle_898" data-name="Rectangle 898" class="cls-1" transform="translate(873 5772)">
+      <rect class="cls-3" width="47" height="47" rx="12"/>
+      <rect class="cls-4" x="1" y="1" width="45" height="45" rx="11"/>
+    </g>
+    <g id="Group_2130" data-name="Group 2130" transform="translate(11453.362 -7542)">
+      <path id="Path_2769" data-name="Path 2769" class="cls-2" d="M123.668,215.294a10.747,10.747,0,0,0-9.037-9.037,10.515,10.515,0,0,0-1.574-.116,10.727,10.727,0,1,0,10.727,10.727A10.512,10.512,0,0,0,123.668,215.294Zm-3.9.578a6.9,6.9,0,0,1,.072,1,6.787,6.787,0,1,1-6.787-6.787,6.909,6.909,0,0,1,1,.072A6.8,6.8,0,0,1,119.771,215.872ZM125,202.951a1.97,1.97,0,1,1-1.97,1.97A1.97,1.97,0,0,1,125,202.951Z" transform="translate(-10670.691 13121.309)"/>
+    </g>
+  </g>
+</svg>

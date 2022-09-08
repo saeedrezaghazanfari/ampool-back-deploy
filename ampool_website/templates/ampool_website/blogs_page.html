@@ -1,0 +1,218 @@
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n %}
+{% block title %}{% translate 'آمپول | لیست مجلات' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/blogs.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/blogs-res.css' %}" media="screen and (max-width: 800px)">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- + Main -->
+<main class="main">
+    
+    <section class="main__header">
+
+        <div class="header__wrapper">
+            <p>
+                <i class="fa fa-home"></i><a href="/">{% translate 'صفحه نخست' %}</a> / 
+                <a href="/blogs">{% translate 'مجله سلامت آمپول' %}</a>
+            </p>
+            <h1>{% translate 'مجله سلامت آمپول' %}</h1>
+        </div>
+
+    </section>
+
+    <section class="main__body">
+        
+        <div class="body__wrapper">
+
+            <nav class="body__nav">
+                
+                {% include 'ampool_website/partials/blog_sidebar.html' %}
+
+            </nav>
+            
+            <section class="body__content">
+                
+                {% for blog in page_obj %}
+                <div class="blog__item">
+                    <a href="{% url 'website:blog_details' blog.blog.slug %}">
+                        <div class="wrapper__dateblog">
+                            <p>{{ blog.blog.j_created }}</p>
+                        </div>
+                        {% if blog.blog.image %}<img src="{{ blog.blog.image.url }}" alt="">{% endif %}
+                        <div class="blog__item__content">
+                            <h1>{{ blog.blog.title }}</h1>
+                            <p>{{ blog.blog.short_desc }}</p>
+                            <div>
+                                <span><i class="fa fa-user-o"></i> {% if blog.blog.writer.get_full_name %}{{blog.blog.writer.get_full_name}}{% else %}{% translate 'وبسایت آمپول' %}{% endif %}</span>
+                                <span><i class="fa fa-comment-o"></i> {% if blog.num_comments %}{{ blog.num_comments }}{% else %}0{% endif %} {% translate 'نظر' %}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% empty %}
+                <p class="alert alert-info">{% translate 'مجله ای متناسب با عبارت مورد نظر شما پیدا نشد!' %}</p>
+                {% endfor %}
+
+                <ul class="paginator__items">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a href="?page={{ page_obj.previous_page_number }}">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for page in paginator.page_range %}
+                        {% if page == page_obj.number %}
+                            <li class="active">
+                                <a href="?page={{ page }}">{{ page }}</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="?page={{ page }}">{{ page }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a href="?page={{ page_obj.next_page_number }}">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+        
+                </ul>
+      
+            </section>
+
+        </div>
+    
+    </section>
+
+</main>
+<!-- - Main -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n %}
+{% block title %}{% translate 'بلاگ ها' %}{% endblock %}
+
+
+{% block content %}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area" style="z-index: 12 !important;">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>{% translate 'بلاگ ها' %}</h2>
+                    <p>{% translate 'زمین سبز پشت هوای الوده است' %}</p>
+                </div>
+                <div class="page_link">
+                    <a href="{% url 'website:blogs' %}">{% translate 'خانه / بلاگ ها' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Blog Area =================-->
+<section class="blog_area area-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+
+                    {% for blog in page_obj %}
+                    <article class="blog_item">
+                        <div class="blog_item_img">
+                            {% if blog.blog.image %}<img class="card-img rounded-0" src="{{ blog.blog.image.url }}" alt="">{% endif %}
+                            <a href="{% url 'website:blog_details' blog.blog.slug %}" class="blog_item_date">
+                                <p>{{ blog.blog.j_created }}</p>
+                            </a>
+                        </div>
+                        
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="{% url 'website:blog_details' blog.blog.slug %}">
+                                <h2>{{ blog.blog.title }}</h2>
+                            </a>
+                            <p>{{ blog.blog.short_desc }}</p>
+                            <ul class="blog-info-link">
+                                <li><a><i class="far fa-user"></i> {% if blog.blog.writer.get_full_name %}{{blog.blog.writer.get_full_name}}{% else %}{% translate 'وبسایت آمپول' %}{% endif %}</a></li>
+                                <li><a><i class="far fa-comments"></i> {% if blog.num_comments %}{{ blog.num_comments }}{% else %}0{% endif %} نظر</a></li>
+                            </ul>
+                        </div>
+                    </article>
+                    {% empty %}
+                    {% endfor %}
+
+                    <nav class="blog-pagination justify-content-center d-flex">
+                        <ul class="pagination">
+                            
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">
+                                    {% translate 'قبلی' %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% for page in paginator.page_range %}
+                            {% if page == page_obj.number %}
+                                <li class="page-item active">
+                                    <a href="?page={{ page }}" class="page-link">{{ page }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a href="?page={{ page }}" class="page-link">{{ page }}</a>
+                                </li>
+                            {% endif %}
+    
+                            
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">
+                                    {% translate 'بعدی' %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <!--================ side bar =================-->
+            {% include 'ampool_website/partials/blog_sidebar.html' %}
+
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
+
+{% endblock %}
+{% endcomment %}

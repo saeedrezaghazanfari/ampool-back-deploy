@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 15:31+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: .\apps.py:8
+msgid "تنظیمات"
+msgstr "إعدادات"
+
+#: .\models.py:10
+msgid "مقیاس ایکس"
+msgstr "مقياس س"
+
+#: .\models.py:11
+msgid "مقیاس ایگرگ"
+msgstr "مقياس Igreg"
+
+#: .\models.py:12
+msgid "متن شما روی نقشه"
+msgstr "النص الخاص بك على الخريطة"
+
+#: .\models.py:13
+msgid "کشور"
+msgstr "دولة"
+
+#: .\models.py:14
+msgid "استان"
+msgstr "حالة"
+
+#: .\models.py:15
+msgid "شهرستان"
+msgstr "مدينة"
+
+#: .\models.py:16
+msgid "تلفن"
+msgstr "هاتف"
+
+#: .\models.py:17
+msgid "زمان گشایش"
+msgstr "وقت مفتوح"
+
+#: .\models.py:18
+msgid "ایمیل"
+msgstr "البريد الإلكتروني"
+
+#: .\models.py:19
+msgid "متن شما درمورد ارتباط"
+msgstr "النص الخاص بك هو حول التواصل"
+
+#: .\models.py:23 .\models.py:24
+msgid "‌تنظیمات"
+msgstr "إعدادات"
+
+#: .\models.py:27 .\models.py:58
+msgid "شما حتما باید یک مقدار در این جدول ذخیره کنید."
+msgstr "يجب عليك تخزين قيمة في هذا الجدول."
+
+#: .\models.py:31
+msgid "همه"
+msgstr "الجميع"
+
+#: .\models.py:31
+msgid "بیماران"
+msgstr "المرضى"
+
+#: .\models.py:31
+msgid "پزشک‌ها"
+msgstr "الأطباء"
+
+#: .\models.py:31
+msgid "پرستاران"
+msgstr "الممرضات"
+
+#: .\models.py:32
+msgid "عنوان پیامک"
+msgstr "عنوان الرسالة النصية"
+
+#: .\models.py:32
+msgid "این مقدار فقط در دیتابیس میباشد و برای کاربر ارسال نمیشود"
+msgstr "هذه القيمة موجودة فقط في قاعدة البيانات ولا يتم إرسالها إلى المستخدم"
+
+#: .\models.py:33
+msgid "متن پیامک"
+msgstr "نص SMS"
+
+#: .\models.py:34
+msgid "چه کسانی این پیامک را دریافت کنند؟"
+msgstr "من سيتلقى هذه الرسالة القصيرة؟"
+
+#: .\models.py:35
+msgid "ارسال شود؟"
+msgstr "ترسل"
+
+#: .\models.py:35
+msgid "اگر این گزینه فعال شد و این رکورد را ذخیره کردید، بلافاصله ارسال پیامک آغاز میشود."
+msgstr "إذا تم تنشيط هذا الخيار وقمت بحفظ هذا السجل ، فسيبدأ إرسال الرسائل القصيرة على الفور."
+
+#: .\models.py:40
+msgid "پیامک پزشکی"
+msgstr "الرسائل القصيرة الطبية"
+
+#: .\models.py:41
+msgid "پیامک‌های پزشکی"
+msgstr "الرسائل القصيرة الطبية"
+
+#: .\models.py:48
+msgid "تایم ابتدایی"
+msgstr "الوقت الابتدائي"
+
+#: .\models.py:49
+msgid "نرخ ابتدایی - تومان"
+msgstr "المعدل الأولي - تومان"
+
+#: .\models.py:50
+msgid "نرخ پیج دقیقه‌ی اضافه - تومان"
+msgstr "سعر الدقيقة الإضافي للصفحة - Tomans"
+
+#: .\models.py:54 .\models.py:55
+msgid "نرخ مشاوره"
+msgstr "معدل الاستشارة"
+
+#: .\models.py:63
+msgid "امور مالی"
+msgstr "قسم التمويل"
+
+#: .\models.py:64
+msgid "مشاوره‌ی پزشکی"
+msgstr "نصيحة طبية"
+
+#: .\models.py:65
+msgid "توصیه گر"
+msgstr "المُوصي"
+
+#: .\models.py:66
+msgid "ارتقای حساب کاربری"
+msgstr "حدث الحساب"
+
+#: .\models.py:67
+msgid "تغییر رمزعبور"
+msgstr "غير كلمة السر"
+
+#: .\models.py:69
+msgid "کاربر"
+msgstr "المستعمل"
+
+#: .\models.py:70
+msgid "نوع اقدام"
+msgstr "نوع الإجراء"
+
+#: .\models.py:71
+msgid "شرح اقدام انجام شده"
+msgstr "وصف الإجراء المتخذ"
+
+#: .\models.py:76
+msgid "اقدام کاربر"
+msgstr "عمل المستخدم"
+
+#: .\models.py:77
+msgid "اقدامات کاربران"
+msgstr "إجراءات المستخدم"
+
+#: .\models.py:81
+msgid "زمان و تاریخ"
+msgstr "الوقت و التاريخ"

@@ -1,0 +1,119 @@
+{% load static i18n website_tags %}
+{% last_categories as categories %}
+{% last_posts as blogs %}
+
+<div class="wrapper__1">
+    <div class="img__wrapper">
+        <img src="{% static 'img/search.svg' %}" alt="www.ampool.ir">
+    </div>
+    
+    <form action="{% url 'website:blog_search' %}" method="GET" novalidate>
+        
+        <div class="wrapper__field">
+            <input type="text" name="query" placeholder="{% translate 'در مقالات آمپول بگرد' %}">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+
+    </form>
+</div>
+                    
+<div class="wrapper__2">
+    <h2>{% translate 'دسته بندی ها' %}</h2>
+
+    <ul>
+        {% for category in categories %}
+        <li>
+            <a href="{% url 'website:blog_search_category' %}?query={{ category.category_name }}">{{ category.category_name }}</a>
+            <span>{{ category.num }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<div class="wrapper__3">
+    <h2>{% translate 'آخرین مقالات' %}</h2>
+
+    <div class="lastblog__items">
+
+        {% for blog in blogs %}
+        <div class="lastblog__items__item">
+            <a href="/blogs/{{ blog.slug }}">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                <div>
+                    <h4>{{ blog.title }}</h4>
+                    <p>{{ blog.j_created }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+
+{% load static i18n website_tags %}
+{% last_categories as categories %}
+{% last_posts as blogs %}
+
+<div class="col-lg-4">
+    <div class="blog_right_sidebar">
+        <aside class="single_sidebar_widget search_widget">
+            <form action="{% url 'website:blog_search' %}" method="GET">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="query" placeholder="جستجوی کلمات کلیدی">
+                        <div class="input-group-append">
+                            <button class="btn" type="button"><i class="ti-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <button class="button rounded-0 primary-bg text-white w-100" type="submit">{% translate 'جستجو' %}</button>
+            </form>
+        </aside>    
+
+        <aside class="single_sidebar_widget post_category_widget">
+            <h4 class="widget_title">{% translate 'دسته بندی' %}</h4>
+            <ul class="list cat-list">
+                {% for category in categories %}
+                <li>
+                    <a href="{% url 'website:blog_search_category' %}?query={{ category.category_name }}" class="d-flex">
+                        <p>{{ category.category_name }}</p>
+                        <p>({{ category.num }})</p>
+                    </a>
+                </li>
+                {% empty %}{% endfor %}
+            </ul>
+        </aside>
+
+        <aside class="single_sidebar_widget popular_post_widget">
+            <h3 class="widget_title">{% translate 'پست های اخیر' %}</h3>
+
+            {% for blog in blogs %}
+            <div class="media post_item">
+                <img src="{{ blog.image.url }}" alt="post" style="height: 80px; width: 80px;">
+                <div class="media-body">
+                    <a href="/blogs/{{ blog.slug }}">
+                        <h3>{{ blog.title }}</h3>
+                    </a>
+                    <p>{{ blog.j_created }}</p>
+                </div>
+            </div>
+            {% empty %}{% endfor %}
+        </aside>
+
+    </div>
+</div>
+
+{% endcomment %}

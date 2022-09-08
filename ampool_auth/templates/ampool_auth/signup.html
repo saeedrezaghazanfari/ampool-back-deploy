@@ -1,0 +1,138 @@
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{% translate 'آمپول | ثبت نام' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/auth.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/auth-res.css' %}" media="screen and (max-width: 800px)">
+{% endblock %}
+
+
+{% block content %}
+
+    <!-- + Main -->
+    <main class="main">
+        
+        <div class="wrapper__card">
+            
+            <div class="wrapper__card__header">
+                <p>{% translate 'فرم ثبت نام به آمپول' %}</p>
+            </div>
+
+            <form class="wrapper__card__body" method="POST" novalidate>
+                {% csrf_token %}
+
+                <div class="wrapper__field mt-1">
+                    <label for="name_input_id">{% translate 'نام' %}</label>
+                    {% render_field form.first_name id="name_input_id" autofocus="autofocus" %}
+                    {% for msg in form.first_name.errors %}<p class="text-primary">{{ msg }}</p>{% endfor %}
+                </div>
+
+                <div class="wrapper__field">
+                    <label for="family_input_id">{% translate 'نام خانوادگی' %}</label>
+                    {% render_field form.last_name id="family_input_id" %}
+                    {% for msg in form.last_name.errors %}<p class="text-primary">{{ msg }}</p>{% endfor %}
+                </div>
+
+                <div class="wrapper__field">
+                    <label for="phone_input_id">{% translate 'شماره تلفن همراه' %}</label>
+                    {% render_field form.phone id="phone_input_id" %}
+                    {% for msg in form.phone.errors %}<p class="text-primary">{{ msg }}</p>{% endfor %}
+                </div>
+
+                <div class="wrapper__radio">
+
+                    {% render_field form.gender %}
+
+                    <!-- <div class="wrapper__radiobtn">
+                        <input type="radio" name="gender_radio" checked id="male_radio_id">
+                        <label for="male_radio_id">مرد</label>
+                    </div> -->
+                    
+                    <!-- <div class="wrapper__radiobtn">
+                        <input type="radio" name="gender_radio" id="female_radio_id">
+                        <label for="female_radio_id">زن</label>
+                    </div> -->
+
+                </div>
+
+                <p><a href="{% url 'auth:signin' %}"><i class="fa fa-sign-in"></i> {% translate 'ورود به حساب کاربری' %}</a></p>
+
+                <div class="wrapper__btn">
+                    <button type="submit">{% translate 'ثبت نام' %}</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+    <!-- - Main -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+<div style="position: absolute; top: 10px; left: 10px;">
+    {% translate 'انتخاب زبان:' %}
+    {% if request.LANGUAGE_CODE == 'en' %}
+        <a href="{% url 'activate_lang' %}?lang=fa&url={{ request.path|slice:'4:' }}" class="mx-1">Fa</a>
+        <a href="{% url 'activate_lang' %}?lang=ar&url={{ request.path|slice:'4:' }}" class="mx-1">Ar</a>
+    {% elif request.LANGUAGE_CODE == 'fa' %}
+        <a href="{% url 'activate_lang' %}?lang=en&url={{ request.path|slice:'4:' }}" class="mx-1">En</a>
+        <a href="{% url 'activate_lang' %}?lang=ar&url={{ request.path|slice:'4:' }}" class="mx-1">Ar</a>
+    {% elif request.LANGUAGE_CODE == 'ar' %}
+        <a href="{% url 'activate_lang' %}?lang=fa&url={{ request.path|slice:'4:' }}" class="mx-1">Fa</a>
+        <a href="{% url 'activate_lang' %}?lang=en&url={{ request.path|slice:'4:' }}" class="mx-1">En</a>
+    {% endif %}
+</div>
+
+<div class="wrapper">
+    <div class="logo"> <img src="{% static 'auth/img/ampool-logo.png' %}" alt=""> </div>
+    <div class="text-center my-5 name"> {% translate 'ثبت نام' %}  </div>
+    <br>
+    <form class="p-3 mt-3" method="POST">
+        {% csrf_token %}
+
+        <div class="form-field d-flex align-items-center"> 
+            {% render_field form.first_name %}
+        </div>
+        {% for msg in form.first_name.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+        <div class="form-field d-flex align-items-center"> 
+            {% render_field form.last_name %}
+        </div>
+        {% for msg in form.last_name.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+        <div class="form-field d-flex align-items-center"> 
+            {% render_field form.phone %}
+        </div>
+        {% for msg in form.phone.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+        {% render_field form.gender %}
+        {% for msg in form.gender.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+        <div class="form-field d-flex align-items-center"> 
+            {% render_field form.passcode %}
+        </div>
+        {% for msg in form.passcode.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+
+        {% render_field form.captcha %}
+        {% for msg in form.captcha.errors %}<p class="text-danger">{{ msg }}</p>{% endfor %}
+        
+
+        <button class="btn mt-3" type="submit">{% translate 'ثبت نام' %}</button>
+    </form>
+    <br>
+    <div class="text-center fs-6"> <a href="{% url 'auth:signin' %}">{% translate 'ورود به حساب کاربری' %}</a> </div>
+</div>
+{% endcomment %}

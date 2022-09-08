@@ -1,0 +1,471 @@
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{% translate 'آمپول | جزئیات مجله' %}{% endblock %}
+{% block extraCss %}
+<meta name="keywords" content="">
+<link rel="stylesheet" href="{% static 'css/blog_info.css' %}" media="screen and (min-width: 801px)">
+<link rel="stylesheet" href="{% static 'css/responsive/blog_info-res.css' %}" media="screen and (max-width: 800px)">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- + Main -->
+<main class="main">
+    
+    <section class="main__header">
+
+        <div class="header__wrapper">
+
+            <p>
+                <i class="fa fa-home"></i><a href="/">{% translate 'صفحه نخست' %}</a> / 
+                <a href="/blogs">{% translate 'مجله پزشکی' %}</a> / 
+                <a href="{% url 'website:blog_details' blog.slug %}">{{ blog.title }}</a>
+            </p>
+            <h1>{{ blog.title }}</h1>
+
+        </div>
+
+    </section>
+
+    <section class="main__body">
+        
+        <div class="body__wrapper">
+
+            <nav class="body__nav">
+                
+                {% include 'ampool_website/partials/blog_sidebar.html' %}
+
+            </nav>
+            
+            <section class="body__content">
+                
+                <div class="blog__item">
+
+                    <div class="wrapper__dateblog">
+                        <p>{{ blog.j_created }}</p>
+                    </div>
+
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+
+                    <div class="blog__item__content">
+                        
+                        <h1>{{ blog.title }}</h1>
+                        <p>{% for cate in blog.categories.all %}{{cate.title}} {% if not forloop.last %}-{% endif %} {% endfor %}</p>
+                        <div>
+                            <span><i class="fa fa-user-o"></i> {{ blog.writer.get_full_name }}</span>
+                            <span><i class="fa fa-comment-o"></i> {% if comments_nums %}{{ comments_nums }}{% else %}0{% endif %} {% translate 'نظر' %}</span>
+                        </div>
+                        <p>{{ blog.short_desc }}</p>
+
+                        <div class="blog__desc">
+                            <div class="blog__desc__inner">
+                                {{ blog.desc }}
+
+                                <br><br>
+
+                                <div class="blog__like">
+                                    <a onclick="likeblog('{{ blog.slug }}')" id="heart__icon">
+                                        <span id="counter__likes" {% if is_like %}class="text-primary"{% endif %}>{{ likes }}</span> <i class="fa fa-iconheart {% if is_like %}fa-heart{% else %}fa-heart-o{% endif %}"></i>
+                                    </a>
+                                </div>
+                                <br>
+                            </div>
+
+                            <div class="blog__desc__tags">
+                                {% for tag in blog.tags.all %}
+                                <div class="blog__desc__tags__tag"><a href="{% url 'website:blog_search_tag' %}?query={{ tag.title }}">{{ tag.title }}</a></div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                        <div class="writer__info">
+
+                            <div class="wrapper__img">
+                                {% if blog.writer.user.profile %}<img class="writer_img" src="{{ blog.writer.user.profile.url }}" alt="{{ blog.writer.user.username }}">{% endif %}
+                            </div>
+                            <div class="wrapper__name">
+                                <P>{% if blog.writer.get_full_name %}{{ blog.writer.get_full_name }}{% else %}{% translate 'وبسایت آمپول' %}{% endif %}</P>
+                                <p>{% if blog.writer.bio %}{{ blog.writer.bio }}{% else %}{% translate 'وبسایت آمپول، بروزترین و جدیدترین پلتفرم پزشکی ایران' %}{% endif %}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="blogs__navigator">
+
+                    {% if blog.prev_post %}
+                    <div class="blog__nav">
+                        <h3>{% translate 'پست قبلی' %}</h3>
+                        <div class="wrapper_info">
+                            <a href="/blogs/{{ blog.prev_post.slug }}">
+                                <img src="{{ blog.prev_post.image.url }}" alt="{{ blog.prev_post.title }}">
+                                <div>
+                                    <h4>{{ blog.prev_post.title }}</h4>
+                                    <p>{{ blog.prev_post.j_created }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if blog.next_post %}
+                    <div class="blog__nav">
+                        <h3>{% translate 'پست بعدی' %}</h3>
+                        <div class="wrapper_info">
+                            <a href="/blogs/{{ blog.next_post.slug }}">
+                                <img src="{{ blog.next_post.image.url }}" alt="{{ blog.next_post.title }}">
+                                <div>
+                                    <h4>{{ blog.next_post.title }}</h4>
+                                    <p>{{ blog.next_post.j_created }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="comment__section">
+
+                    <form method="POST" action="{% url 'website:comment_save' %}" class="send__comment" id="commentForm" novalidate>
+                        {% csrf_token %}
+
+                        <div class="wrapper__msg">
+                            <div class="wrapper__field">
+                                <label for="comment_tarea">{% translate 'خوشحال میشویم نظر خود را با ما به اشتراک بگذارید:' %}</label>
+                                {% render_field form.message id="comment_tarea" rows="10" placeholder="ارسال نظر..." %}
+                                {% render_field form.at_blog value=blog.slug %}
+                                {% render_field form.isreply value='False' %}
+                                {% render_field form.commentid value='' %}
+                            </div>
+                        </div>
+                        <div class="btn__wrapper">
+                            <button type="submit" class="btn">{% translate 'ارسال نظر' %}</button>
+                        </div>
+                    </form>
+
+                    {% for comment in comments %}
+                    <div class="comment__box">
+                        
+                        <span class="comment_date">{{ comment.j_created }}</span>
+                        <div class="comment_header">
+                            {% if comment.user.profile %}<img src="{{ comment.user.profile.url }}" alt="{{ comment.user.get_full_name }}">{% endif %}
+                            <p>{{ comment.user.get_full_name }} {% if comment.user.is_supporter %} ({% translate 'پشتیبان' %}){% endif %}</p>
+                        </div>
+                        <p>{{ comment.message }}</p>
+                        <div class="wrapper_btn">
+                            <button class="btn" id="linkreply__{{ comment.id }}" onclick="document.getElementById('msgreply__{{ comment.id }}').classList.remove('d-none');document.getElementById('linkreply__{{ comment.id }}').classList.add('d-none');">{% translate 'جواب دادن' %}</button>
+                        </div>
+
+                        <div class="comment__sendreply d-none" id="msgreply__{{ comment.id }}">
+                            <form method="POST" action="{% url 'website:comment_save' %}" novalidate>
+                                {% csrf_token %}
+
+                                <div class="wrapper__field">
+                                    <label for="reply_tarea">{% translate 'پاسخ خود را وارد کنید:' %}</label>
+                                    {% render_field form.message id="reply_tarea" rows="3" placeholder="ارسال پاسخ..." %}
+                                    {% render_field form.at_blog value=blog.slug %}
+                                    {% render_field form.isreply value='True' %}
+                                    {% render_field form.commentid value=comment.id %}
+                                </div>
+
+                                <div class="wrapper_btn">
+                                    <a class="btn" onclick="document.getElementById('msgreply__{{ comment.id }}').classList.add('d-none');document.getElementById('linkreply__{{ comment.id }}').classList.remove('d-none');">{% translate 'بستن' %}</a>
+                                    <button class="btn" type="submit">{% translate 'ارسال پاسخ' %}</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        {% for reply in replies %}
+                        {% if reply.reply == comment %}
+                        <div class="reply">
+                            <span class="reply_date">{{ reply.j_created}}</span>
+                            <div class="comment_header">
+                                {% if reply.user.profile %}<img src="{{ reply.user.profile.url }}" alt="{{ reply.user.get_full_name}}">{% endif %}
+                                <p>{{ reply.user.get_full_name}}{% if reply.user.is_supporter %} ({% translate 'پشتیبان' %}){% endif %}</p>
+                            </div>
+                            <p>{{ reply.message }}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </section>
+
+        </div>
+    
+    </section>
+
+</main>
+<!-- - Main -->
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+
+{% extends 'website/shared/_main_layout.html' %}
+{% load static i18n widget_tweaks %}
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block content %}
+
+<!--================Home Banner Area =================-->
+<section class="banner_area" style="z-index: 12 !important;">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0">
+                    <h2>{{ blog.title }}</h2>
+                    <p>{% translate 'زمین سبز پشت هوای الوده است' %}</p>
+                </div>
+                <div class="page_link">
+                    <a href="{% url 'website:blog_details' blog.slug %}">{% translate 'خانه / بلاگ ها / اطلاعات بلاگ' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area area-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="img-fluid" src="{{ blog.image.url }}" alt="">
+                    </div>
+
+                    <div class="blog_details">
+                        <h2>{{ blog.title }}</h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a><i class="far fa-user"></i> {% for cate in blog.categories.all %}{{cate.title}} {% if not forloop.last %}-{% endif %} {% endfor %}</a></li>
+                            <li><a><i class="far fa-comments"></i> {% if comments_nums %}{{ comments_nums }}{% else %}0{% endif %} {% translate 'نظر' %}</a></li>
+                        </ul>
+                        <p class="excert">
+                            {{ blog.short_desc }}
+                        </p>
+                        <div class="quote-wrapper">
+                            <div class="quotes text-justify">
+                                {{ blog.desc }}
+                            </div>
+                        </div>
+
+                        <ul class="list" style="display: flex; margin-bottom: 1rem; flex-wrap: wrap;">
+                            {% for tag in blog.tags.all %}
+                            <li style="padding: 8px 16px; background: #f2f3f7; color: white; margin: 5px; border-radius: 5px;">
+                                <a href="{% url 'website:blog_search_tag' %}?query={{ tag.title }}">{{ tag.title }}</a>
+                            </li>
+                            {% empty %}
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="navigation-top">
+                    <div class="d-sm-flex justify-content-between text-center">
+                        <p class="like-info">
+                            <a href="javascript:void(0);" onclick="likeblog('{{ blog.slug }}')" id="hearticon">
+                                <span class="align-middle"><i id="heartcolor" class="far fa-heart {% if is_like %}text-danger{% endif %}"></i></span> 
+                                <span id="counterlikes" class="{% if is_like %}text-danger{% endif %}">{{ likes }} </span> 
+                                <span id="youareliked" {% if not is_like %} style="display: none;"{% endif %} class="btn btn-outline-danger btn-sm mx-3">
+                                    {% translate 'شما این پست را لایک کرده اید' %}
+                                </span> 
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="navigation-area">
+                        <div class="row">
+                            {% if blog.prev_post %}
+                            <div class="col-6 nav-left flex-row d-flex justify-content-start align-items-center">
+                                <div class="thumb">
+                                    <a href="/blogs/{{ blog.prev_post.slug }}">
+                                        <img class="img-fluid" src="{{ blog.image.url }}" style="height: 80px; width: 80px;" alt="">
+                                    </a>
+                                </div>
+                                <div class="arrow">
+                                    <a href="/blogs/{{ blog.prev_post.slug }}">
+                                        <span class="lnr text-white lnr-arrow-left"></span>
+                                    </a>
+                                </div>
+                                <div class="detials">
+                                    <p>{% translate 'پست قبلی' %}</p>
+                                    <a href="/blogs/{{ blog.prev_post.slug }}">
+                                        <h4>{{ blog.prev_post.title }}</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                            {% if blog.next_post %}
+                            <div class="col-6 {% if not blog.prev_post %}col-12{% endif %} nav-right flex-row d-flex justify-content-end align-items-center">
+                                <div class="detials">
+                                    <p>{% translate 'پست بعدی' %}</p>
+                                    <a href="/blogs/{{ blog.next_post.slug }}">
+                                        <h4>{{ blog.next_post.title }}</h4>
+                                    </a>
+                                </div>
+                                <div class="arrow">
+                                    <a href="/blogs/{{ blog.next_post.slug }}">
+                                        <span class="lnr text-white lnr-arrow-right"></span>
+                                    </a>
+                                </div>
+                                <div class="thumb">
+                                    <a href="/blogs/{{ blog.next_post.slug }}">
+                                        <img class="img-fluid" src="{{ blog.image.url }}" style="height: 80px; width: 80px;">
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="blog-author">
+                    <div class="media align-items-center">
+                        {% if blog.writer.user.profile %}<img style="height: 90px; width: 90px;" src="{{ blog.writer.user.profile.url }}" alt="">{% endif %}
+                        <div class="media-body">
+                            <a>
+                                <h4>{% if blog.writer.get_full_name %}{{ blog.writer.get_full_name }}{% else %}{% translate 'وبسایت آمپول' %}{% endif %}</h4>
+                            </a>
+                            <p>{% if blog.writer.bio %}{{ blog.writer.bio }}{% else %}{% translate 'وبسایت آمپول، بروزترین و جدیدترین پلتفرم پزشکی ایران' %}{% endif %}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comments-area">
+                    <h4>{% if comments_nums %}{{ comments_nums }}{% else %}0{% endif %} {% translate 'نظر' %}</h4>
+                    {% for comment in comments %}
+                    <div class="comment-list" style="border: 1px dashed rgb(214, 214, 214); margin-bottom: 10px; border-radius: 15px; padding: 7px 0 7px 13px;">
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb" style="min-width: 60px !important;">
+                                    {% if comment.user.profile %}<img style="height: 50px !important; width: 50px !important;" src="{{ comment.user.profile.url }}" alt="">{% endif %}
+                                </div>
+                                <div class="desc">
+                                    <p class="comment text-justify">
+                                        {{ comment.message }}
+                                    </p>
+
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <h5>
+                                                <a>{{ comment.user.get_full_name }} {% if comment.user.is_supporter %} ({% translate 'پشتیبان' %}){% endif %}</a>
+                                            </h5>
+                                            <p class="date">{{ comment.j_created }} </p>
+                                        </div>
+
+                                        <div class="reply-btn">
+                                            <a href="javascript:void(0);" id="linkreply{{ comment.id }}" onclick="document.getElementById('msgreply{{ comment.id }}').classList.remove('d-none');document.getElementById('linkreply{{ comment.id }}').classList.add('d-none');" class="btn-reply text-uppercase">جواب دادن</a>
+                                        </div>
+                                    </div>
+                                    <div class="mt-4 d-none" id="msgreply{{ comment.id }}">
+                                        <form action="{% url 'website:comment_save' %}" method="POST">
+                                            {% csrf_token %}
+                                            {% render_field form.message class="form-control w-100" id="comment" cols="30" rows="3" placeholder="پاسخ خود را وارد کنید" %}
+                                            {% render_field form.at_blog value=blog.slug %}
+                                            {% render_field form.isreply value='True' %}
+                                            {% render_field form.commentid value=comment.id %}
+                                            <div class="d-flex">
+                                                <button type="submit" class="btn btn-primary btn-sm mt-2">{% translate 'ارسال پاسخ' %}</button>
+                                                <button onclick="document.getElementById('msgreply{{ comment.id }}').classList.add('d-none');document.getElementById('linkreply{{ comment.id }}').classList.remove('d-none');" class="btn btn-danger btn-sm mt-2 mr-1">بستن</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% for reply in replies %}
+                        {% if reply.reply == comment %}
+                        <div class="comment-list" style="background-color: #fafafa; margin-bottom: 10px; border-radius: 15px; padding: 10px 10px 10px 13px; margin-right: 13px; margin-top: 20px;">
+                            <div class="single-comment justify-content-between d-flex">
+                                <div class="user justify-content-between d-flex">
+                                    <div class="thumb" style="min-width: 60px !important;">
+                                        {% if reply.user.profile %}<img style="height: 50px !important; width: 50px !important;" src="{{ reply.user.profile.url }}" alt="">{% endif %}
+                                    </div>
+                                    <div class="desc">
+                                        <p class="comment text-justify">
+                                            {{ reply.message }}
+                                        </p>
+    
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <h5>
+                                                    <a>{{ reply.user.get_full_name }}{% if reply.user.is_supporter %} ({% translate 'پشتیبان' %}){% endif %}</a>
+                                                </h5>
+                                                <p class="date">{{ reply.j_created }} </p>
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% empty %}
+                        {% endfor %}
+                    </div>
+                    {% empty %}{% endfor %}
+                </div>
+
+                <div class="comment-form">
+                    <h4>{% translate 'جواب دادن' %}</h4>
+                    <form class="form-contact comment_form" method="POST" action="{% url 'website:comment_save' %}" id="commentForm">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="comment">{% translate 'خوشحال میشویم نظر خود را با ما به اشتراک بگذارید' %}</label>
+                                    {% render_field form.message class="form-control w-100" id="comment" cols="30" rows="9" placeholder="نظر " %}
+                                    {% render_field form.at_blog value=blog.slug %}
+                                    {% render_field form.isreply value='False' %}
+                                    {% render_field form.commentid value='' %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="button button-contactForm">{% translate 'ارسال پیام' %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--================ side bar =================-->
+            {% include 'ampool_website/partials/blog_sidebar.html' %}
+
+        </div>
+    </div>
+</section>
+<!--================Blog Area end =================-->
+
+
+{% endblock %}
+{% endcomment %}

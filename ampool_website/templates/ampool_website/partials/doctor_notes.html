@@ -1,0 +1,24 @@
+{% load static website_tags %}
+{% doctor_notes as notes %}
+<section class="testimonial" style="{{ style }}">
+    <div class="container">
+        <div class="testi_slider owl-carousel owl-theme">
+            {% for note in notes %}
+            <div class="item">
+                <div class="testi_item">
+                    <div class="testimonial_image">
+                        {% if note.doctor.user.profile %}<img src="{{ note.doctor.user.profile.url }}" style="height: 100px; width: 100px;" alt="{{ note.doctor.user.get_full_name }}">{% endif %}
+                    </div>
+                    <div class="testi_item_content">
+                        <p>
+                            “{{ note.text }}”
+                        </p>
+                        <h4>- دکتر {{ note.doctor.get_full_name }} -</h4>       
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

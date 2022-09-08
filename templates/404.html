@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="">
+    <meta name="keywords" content="">
+	<meta name="theme-color" content="#ff0000">
+    <meta name="description" content="">
+
+    <title>Ampool.ir</title>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="{% static 'css/configure.css' %}">
+    <link rel="stylesheet" href="{% static 'css/http_pages.css' %}" media="screen and (min-width: 1701px)">
+    <link rel="stylesheet" href="{% static 'css/responsive/http_pages-res.css' %}" media="screen and (max-width: 1700px)">
+
+</head>
+<body>
+
+
+    <!-- + Main -->
+    <main class="main">
+        
+        <div class="container">
+            <p class="num">
+                <span>4</span>
+                <span>0</span>
+                <span>4</span>
+            </p>
+            <p class="txt">
+                {% if request.LANGUAGE_CODE == 'fa' %}
+                صفحه ی مورد نظر شما پیدا نشد.
+                {% if request.LANGUAGE_CODE == 'en' %}
+                The page you are looking for could not be found.
+                {% if request.LANGUAGE_CODE == 'ar' %}
+                الصفحة التي تبحث عنها لا يمكن العثور عليها.
+                {% endif %}
+            </p>
+            <p class="anc"><a href="/">Ampool.ir</a></p>
+        </div>
+
+    </main>
+    <!-- - Main -->
+
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/verndors/jquery.min.js"></script>
+
+</body>
+</html>
